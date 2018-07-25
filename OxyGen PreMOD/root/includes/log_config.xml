@@ -1,0 +1,80 @@
+<!--<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!--
+/** 
+ * log_config.xml
+ * 
+ * @package		The Logger
+ * @author		eviL3 <evil@phpbbmodders.net>
+ * @author		Brainy
+ * @copyright	(c) 2006 eviL3 and Brainy
+ * @license		http://opensource.org/licenses/gpl-license.php GNU Public License 
+ *
+ */
+-->
+
+<!--
+<log-config>
+-->
+	<category title="log_gen_settings">
+		<entry>log_user</entry>
+		<entry>log_mod</entry>
+		<entry>log_admin</entry>
+		<entry>log_error</entry>
+		<entry>log_email_send</entry>
+		<entry>log_msgdie_hide</entry>
+		<entry type="string">log_super_admins</entry>
+		<entry>log_admins_view</entry>
+		<entry>log_admins_del</entry>
+		<entry>log_admins_config</entry>
+	</category>
+	
+	<category title="log_user_log_config">
+		<entry>log_user_prune</entry>
+		<entry>log_user_newtopic</entry>
+		<entry>log_user_edit</entry>
+		<entry>log_user_delete</entry>
+		<entry>log_user_login</entry>
+		<entry>log_user_logout</entry>
+		<entry>log_user_fail_login</entry>
+		<entry>log_user_profile</entry>
+		<entry>log_user_register</entry>
+	</category>
+	
+	<category title="log_mod_mog_config">
+		<entry>log_mod_prune</entry>	
+		<entry>log_mod_edit</entry>
+		<entry>log_mod_delete</entry>
+		<entry>log_mod_move</entry>
+		<entry>log_mod_lock</entry>
+		<entry>log_mod_unlock</entry>
+	</category>
+	
+	<category title="log_admin_log_config">
+		<entry>log_admin_prune</entry>
+		<entry>log_admin_config</entry>
+		<entry>log_admin_email</entry>
+		<entry>log_admin_forum_creation</entry>
+		<entry>log_admin_forum_deletion</entry>
+		<entry>log_admin_forum_edit</entry>
+		<entry>log_admin_ban</entry>
+		<entry>log_admin_user_manage</entry>
+	</category>
+	
+	<category title="log_error_log_config">
+		<entry>log_error_prune</entry>
+		<entry>log_error_general</entry>
+		<entry>log_error_critical</entry>
+	</category>
+	
+	<category title="log_other_settings">
+		<entry type="string">log_view_per_page</entry>
+		<entry type="string">log_prune_days</entry>
+<!--
+		<entry type="hidden">log_last_prune</entry>
+-->
+		<entry>log_mod_version_check</entry>
+		<entry type="text">log_mod_version</entry>
+	</category>
+<!--
+</log-config>
+-->

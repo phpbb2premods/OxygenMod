@@ -1,0 +1,15 @@
+
+Ce que vous devez respecter :
+-----------------------------
+
+Vous ne pouvez pas utiliser cette preMOD comme base pour commencer et/ou distribuer votre propre preMOD.
+Vous ne pouvez pas réutiliser les scripts non-distribués présents de cette preMOD dans une autre preMOD ou sur votre forum personnel :
+
+- Soit ils sont en cours de développement.
+- Soit ils sont exclusifs à OxyGen PreMOD.
+
+Il est demandé que les copyrights de la preMOD (nom, lien vers le site EzCom-fr et numéro de version) visibles en bas de page soient conservés, par respect pour le travail effectué pour vous offrir une PreMOD de qualité.
+Dans le cas où ceux-ci seraient supprimés ou tronqués, aucun support ne sera effectué.
+
+
+ABDev, EzCom (http://www.ezcom-fr.com/)

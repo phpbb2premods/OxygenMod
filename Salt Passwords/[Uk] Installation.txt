@@ -1,0 +1,14 @@
+How to apply the Salt Passwords MOD on OxyGen PreMODded Board ?
+---------------------------------------------------------------
+
+Having installed OxyGen PreMODded Board, Upload in the root of this one the password.php file.
+Then execute the file (ex.: http://www.your_website_name.com/board_folder/password.php).
+
+If the message which follows appears, It is because the Salt Passwords MOD is henceforth active.
+
+Successfully installed.
+You may now delete
+
+The get rid of the file of your FTP, disconnect from the board and re-login.
+
+Enjoy ;)

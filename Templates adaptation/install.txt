@@ -1,0 +1,3776 @@
+##############################################################
+## MOD Title: Templates adaptation for OxyGen PreMOD
+## MOD Author: ABDev < N/A > (N/A) http://www.ezcom-fr.com/
+## MOD Description: Permet d'adapter les thèmes pour OxyGen PreMOD 1.1.0
+## MOD Version: 0.1.0
+## 
+## Installation Level:	Intermediate
+## Installation Time: 120 minutes
+## Files To Edit:	35
+##	templates/subSilver/bbcode.tpl
+##	templates/subSilver/groupcp_info_body.tpl
+##	templates/subSilver/groupcp_pending_info.tpl
+##	templates/subSilver/index_body.tpl
+##	templates/subSilver/login_body.tpl
+##	templates/subSilver/memberlist_body.tpl
+##	templates/subSilver/modcp_body.tpl
+##	templates/subSilver/modcp_split.tpl
+##	templates/subSilver/overall_footer.tpl
+##	templates/subSilver/overall_header.tpl
+##	templates/subSilver/posting_body.tpl
+##	templates/subSilver/posting_preview.tpl
+##	templates/subSilver/posting_topic_review.tpl
+##	templates/subSilver/privmsgs_body.tpl
+##	templates/subSilver/privmsgs_preview.tpl
+##	templates/subSilver/privmsgs_read_body.tpl
+##	templates/subSilver/search_results_posts.tpl
+##	templates/subSilver/search_results_topics.tpl
+##	templates/subSilver/simple_footer.tpl
+##	templates/subSilver/simple_header.tpl
+##	templates/subSilver/subSilver.cfg
+##	templates/subSilver/subSilver.css
+##	templates/subSilver/theme_info.cfg
+##	templates/subSilver/viewforum_body.tpl
+##	templates/subSilver/viewonline_body.tpl
+##	templates/subSilver/viewtopic_body.tpl
+##	templates/subSilver/admin/forum_admin_body.tpl
+##	templates/subSilver/admin/forum_edit_body.tpl
+##	templates/subSilver/admin/group_edit_body.tpl
+##	templates/subSilver/admin/index_body.tpl.tpl
+##	templates/subSilver/admin/index_navigate.tpl
+##	templates/subSilver/admin/page_footer.tpl
+##	templates/subSilver/admin/page_header.tpl
+##	templates/subSilver/admin/ranks_list_body.tpl
+##	templates/subSilver/admin/styles_edit_body.tpl
+## Included Files:
+## 	root/*.*
+##
+## License: http://opensource.org/licenses/gpl-license.php GNU General Public License v2
+## Generator: MOD Studio [ ModTemplateTools 1.0.2288.38406 ]
+##############################################################
+## For security purposes, please check: http://www.phpbb.com/mods/
+## for the latest version of this MOD. Although MODs are checked
+## before being allowed in the MODs Database there is no guarantee
+## that there are no security problems within the MOD. No support
+## will be given for MODs not found within the MODs Database which
+## can be found at http://www.phpbb.com/mods/
+##############################################################
+## Before Adding This MOD To Your Forum, You Should Back Up All Files Related To This MOD 
+##############################################################
+
+#
+#-----[ DIY INSTRUCTIONS ]------------------------------------
+#
+RENAME templates/subSilver/groupcp_user_body.tpl INTO templates/subSilver/_sav_groupcp_user_body.tpl
+RENAME templates/subSilver/posting_smilies.tpl INTO templates/subSilver/_sav_posting_smilies.tpl
+RENAME templates/subSilver/profile_add_body.tpl INTO templates/subSilver/_sav_profile_add_body.tpl
+RENAME templates/subSilver/profile_view_body.tpl INTO templates/subSilver/_sav_profile_view_body.tpl
+RENAME templates/subSilver/admin/auth_select_body.tpl INTO templates/subSilver/admin/_sav_auth_select_body.tpl
+RENAME templates/subSilver/admin/board_config_body.tpl INTO templates/subSilver/admin/_sav_board_config_body.tpl
+RENAME templates/subSilver/admin/db_utils_backup_body.tpl INTO templates/subSilver/admin/_sav_db_utils_backup_body.tpl
+RENAME templates/subSilver/admin/db_utils_restore_body.tpl INTO templates/subSilver/admin/_sav_db_utils_restore_body.tpl
+RENAME templates/subSilver/admin/group_select_body.tpl INTO templates/subSilver/admin/_sav_group_select_body.tpl
+RENAME templates/subSilver/admin/smile_edit_body.tpl INTO templates/subSilver/admin/_sav_smile_edit_body.tpl
+RENAME templates/subSilver/admin/smile_list_body.tpl INTO templates/subSilver/admin/_sav_smile_list_body.tpl
+RENAME templates/subSilver/admin/user_edit_body.tpl INTO templates/subSilver/admin/_sav_user_edit_body.tpl
+RENAME templates/subSilver/admin/user_select_body.tpl INTO templates/subSilver/admin/_sav_user_select_body.tpl
+#
+#-----[ COPY ]------------------------------------------------
+#
+COPY root/*.* TO *.*
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/bbcode.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+# This is a partial search: the full lines are longer
+#
+<!-- BEGIN quote_username_open --></span>
+<table
+<tr> 
+	  {USERNAME} {L_WROTE}
+	</tr>
+	<tr>
+	  <!-- END quote_username_open -->
+<!-- BEGIN quote_open --></span>
+<table
+<tr> 
+	  {L_QUOTE}
+	</tr>
+	<tr>
+	  <!-- END quote_open -->
+<!-- BEGIN quote_close --></td>
+	</tr>
+</table>
+<span class="postbody"><!-- END quote_close -->
+
+<!-- BEGIN code_open --></span>
+<table
+<tr> 
+	  {L_CODE}
+	</tr>
+	<tr>
+	  <!-- END code_open -->
+<!-- BEGIN code_close --></td>
+	</tr>
+</table>
+<span class="postbody"><!-- END code_close -->
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+<!-- BEGIN quote_username_open --></span>
+<div align="center">
+	<div class="quotetitle"><nobr>&laquo; {USERNAME} &raquo; {L_WROTE}:</nobr></div>
+	<div class="quotediv">
+<!-- END quote_username_open -->
+<!-- BEGIN quote_open --></span>
+<div align="center">
+	<div class="quotetitle">{L_QUOTE}:</div>
+	<div class="quotediv">
+<!-- END quote_open -->
+<!-- BEGIN quote_close -->
+	</div>
+</div><span class="postbody"><!-- END quote_close -->
+
+<!-- BEGIN code_open --></span>
+<script type="text/javascript" src="templates/bbc_box/divexpand.js"></script> 
+<div align="center">
+	<script type="text/javascript">
+	var codetext = '{L_CODE}';
+	var expand = '{L_EXPAND}';
+	var expand_more = '{L_EXPAND_MORE}';
+	var contract = '{L_CONTRACT}';
+	var select_all = '{L_SELECT_ALL}';
+	codeDivStart()
+	</script>
+<!-- END code_open --> 
+<!-- BEGIN code_close -->
+	</div>
+</div><span class="postbody"><!-- END code_close -->
+#
+#-----[ FIND ]------------------------------------------
+#
+<!-- BEGIN img --><img alt="{URL}" src="{URL}" border="0" /><!-- END img -->
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+<!-- BEGIN img --><img
+#
+#-----[ IN-LINE AFTER, ADD ]------------------------------------------
+#
+ resizemod="on" onload="rmw_img_loaded(this)"
+#
+#-----[ FIND ]------------------------------------------
+#
+<!-- END email -->
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+<!-- BEGIN youtube -->
+<object width="425" height="350">
+	<param name="movie" value="http://www.youtube.com/v/{YOUTUBEID}"></param>
+	<embed src="http://www.youtube.com/v/{YOUTUBEID}" type="application/x-shockwave-flash" width="425" height="350"></embed>
+</object><br />
+<a href="http://youtube.com/watch?v={YOUTUBEID}" target="_blank">{YOUTUBELINK}</a><br />
+<!-- END youtube -->
+
+<!-- BEGIN s_open --><span style="text-decoration: line-through"><!-- END s_open -->
+<!-- BEGIN s_close --></span><!-- END s_close -->
+
+<!-- BEGIN spoil_open --></span>
+<div align="center">
+<div class="spoiltitle"><b>{L_BBCBXR_SPOIL}:</b>&nbsp;
+<input class="spoilbtn" type="button" value="{L_BBCBXR_SHOW}" onClick="javascript:if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = '{L_BBCBXR_HIDE}'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = '{L_BBCBXR_SHOW}'; }" onfocus="this.blur();">
+</div>
+<div class="spoildiv">
+<div style="display: none;"><!-- END spoil_open -->
+<!-- BEGIN spoil_close --></div>
+</div>
+</div>
+<span class="postbody"><!-- END spoil_close -->
+
+<!-- BEGIN fade_open -->
+<span style="width:100%; -moz-opacity:0.3; opacity:0.3; -khtml-opacity:0.3; filter:alpha(opacity=30);" onmouseout="fade2(this,30);" onmouseover="fade2(this,100);">
+<!-- END fade_open -->
+<!-- BEGIN fade_close -->
+</span>
+<!-- END fade_close -->
+
+<!-- BEGIN align_open --><div style="text-align:{ALIGN}"><!-- END align_open -->
+<!-- BEGIN align_close --></div><!-- END align_close -->
+
+<!-- BEGIN anchor_link --><a class="postlink" href="#{ANCHOR}">{DESCRIPTION}</a><!-- END anchor_link -->
+<!-- BEGIN anchor_target --><a name="{ANCHOR}" id="{ANCHOR}">{DESCRIPTION}</a><!-- END anchor_target -->
+
+<!-- BEGIN marq_open --><marquee direction="{MARQ}" scrolldelay="120"><!-- END marq_open -->
+<!-- BEGIN marq_close --></marquee><!-- END marq_close -->
+
+<!-- BEGIN flash -->
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="{WIDTH}" height="{HEIGHT}">
+	<param name="allowScriptAccess" value="never" />
+	<param name="movie" value="{URL}" />
+	<param name="quality" value="high" />
+	<param name="scale" value="noborder" />
+	<param name="wmode" value="transparent" />
+	<param name="bgcolor" value="#000000" />
+	<embed type="application/x-shockwave-flash" src="{URL}" width="{WIDTH}" height="{HEIGHT}" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" allowScriptAccess="never" quality="high" scale="noborder" wmode="transparent" bgcolor="#000000"></embed> 
+</object><!-- END flash -->
+
+<!-- BEGIN video -->
+<object id="NSPlay" classid="clsid:22d6f312-b0f6-11d0-94ab-0080c74c7e95" codebase="http://www.microsoft.com/netshow/download/en/nsasfinf.cab#Version=2,0,0,912" viewastext="" width="{WIDTH}" height="{HEIGHT}">
+	<param name="ControlType" value="1">
+	<param name="filename" value="{URL}">
+	<param name="AutoStart" value="0">
+	<param name="ShowControls" value="1">
+	<param name="ShowStatusBar" value="1">
+	<param name="AnimationStart" value="1">
+	<param name="TransparentAtStart" value="0">
+	<embed type="video/x-ms-asf-plugin" src="{URL}" width="{WIDTH}" height="{HEIGHT}" filename="{URL}" pluginspage="http://www.microsoft.com/windows/mediaplayer/download/default.asp" showcontrols="1" controltype="1" autostart="0" transparentatstart="1" animationatstart="1" animationstart="1" showstatusbar="1" displaysize="4"></embed>
+</object><!-- END video -->
+
+<!-- BEGIN stream -->
+<object id="wmp" classid="clsid:22d6f312-b0f6-11d0-94ab-0080c74c7e95" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,0,0,0" standby="Loading Microsoft Windows Media Player components..." type="application/x-oleobject" width="300" height="70"> 
+	<param name="FileName" value="{URL}"> 
+	<param name="ShowControls" value="1"> 
+	<param name="ShowDisplay" value="0"> 
+	<param name="ShowStatusBar" value="1"> 
+	<param name="AutoSize" value="1"> 
+        <embed type="application/x-mplayer2" src="{URL}" width="300" height="70" pluginspage="http://www.microsoft.com/windows95/downloads/contents/wurecommended/s_wufeatured/mediaplayer/default.asp" name="MediaPlayer2" showcontrols="1" autostart="0" showdisplay="0" showstatusbar="1" autosize="1" visible="1" animationatstart="0" transparentatstart="1" loop="0"></embed>
+</object><!-- END stream -->
+
+<!-- BEGIN ram -->
+	<embed src="{URL}" width="{WIDTH}" height="{HEIGHT}" nojava="1" controls="ImageWindow" console="one"></embed>
+	<embed src="{URL}" width="{WIDTH}" height="36" nojava="1" controls="ControlPanel" console="one" autostart="0"></embed>
+<!-- END ram -->
+
+<!-- BEGIN quick -->
+<object classid=clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B codebase="http://www.apple.com/qtactivex/qtplugin.cab#version=6,0,2,0" align="center" width="{WIDTH}" height="{HEIGHT}">
+	<param name="controller" value="1">
+	<param name="type" value="video/quicktime">
+	<param name="autoplay" value="0">
+	<param name="target" value="myself">
+	<param name="src" value="{URL}">
+	<param name="pluginspage" value="http://www.apple.com/quicktime/download/indext.html">
+	<param name="kioskmode" value="true">
+	<embed type="video/quicktime" src="{URL}" width="{WIDTH}" height="{HEIGHT}" pluginspage="http://www.apple.com/quicktime/download/indext.html" align="center" border="0" kioskmode="1" controller="1" target="myself"></embed>
+</object><!-- END quick -->
+
+<!-- BEGIN sup_open --><sup><!-- END sup_open -->
+<!-- BEGIN sup_close --></sup><!-- END sup_close -->
+
+<!-- BEGIN sub_open --><sub><!-- END sub_open -->
+<!-- BEGIN sub_close --></sub><!-- END sub_close -->
+
+<!-- BEGIN hr --><hr width="80%" size="1" /><!-- END hr -->
+
+<!-- BEGIN bcolor_open --><span style="background-color: {COLOR}"><!-- END bcolor_open -->
+<!-- BEGIN bcolor_close --></span><!-- END bcolor_close -->
+
+<!-- BEGIN font_open --><span style="font-family:{FONT}"><!-- END font_open --> 
+<!-- BEGIN font_close --></span><!-- END font_close -->
+
+<!-- BEGIN thumbnails --></span>
+<table cellspacing="0" cellpadding="0" align="center" style="background-color:#000000; border:1px #000000 solid; color:#ffffff; font-size:11px;">
+  <tr>
+	<td align="center"><a href="{URL}" target="_new"><img src="{URL}" border="0" alt="{L_THUMBNAILS_ALT}" title="{L_THUMBNAILS_TITLE}" width="300" /></a><br />{L_THUMBNAILS_TITLE}</td>
+  </tr>
+</table>
+<span class="postbody"><!-- END thumbnails -->
+
+<!-- BEGIN php_open --></span>
+<script type="text/javascript" src="templates/bbc_box/divexpand.js"></script>
+<div align="center">
+	<script type="text/javascript">
+	var codetext = '{L_PHP}';
+	var expand = '{L_EXPAND}';
+	var expand_more = '{L_EXPAND_MORE}';
+	var contract = '{L_CONTRACT}';
+	var select_all = '{L_SELECT_ALL}';
+	PhpcodeDivStart()
+	</script>
+<!-- END php_open -->
+<!-- BEGIN php_close -->
+	</div>
+</div><span class="postbody"><!-- END php_close -->
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/groupcp_info_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+{S_HIDDEN_FIELDS}
+
+</form>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+<br class="gensmall" />
+#
+#-----[ FIND ]------------------------------------------
+#
+<th class="thTop">{L_USERNAME}</th>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+	  <th class="thTop">{L_ONLINE_STATUS}</th>
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="catSides" colspan="{%:1}"
+#
+#-----[ INCREMENT ]------------------------------------------
+#
+%:1 +1
+#
+#-----[ FIND ]------------------------------------------
+#
+{L_GROUP_MODERATOR}
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{L_GROUP_MODERATOR}
+#
+#-----[ IN-LINE REPLACE WITH ]------------------------------------------
+#
+{L_GROUP_OWNER}
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="row1" align="center"> {MOD_PM_IMG} </td>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	  <td class="row1" align="center" valign="middle"><span class="gen">{MOD_ONLINE_STATUS_IMG}</span></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+{U_MOD_VIEWPROFILE}" class="gen">{MOD_USERNAME}
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{U_MOD_VIEWPROFILE}" class="gen"
+#
+#-----[ IN-LINE REPLACE WITH ]------------------------------------------
+#
+{U_MOD_VIEWPROFILE}" alt="{L_VIEWPROFILE}" title="{L_VIEWPROFILE}"{MOD_STYLE}
+#
+#-----[ FIND ]------------------------------------------
+#
+# this is a partial search : the full line is longer
+# 
+<tr>
+{L_GROUP_MEMBERS}
+</tr>
+<!-- BEGIN member_row -->
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	<!-- BEGIN member_row -->
+	<!-- BEGIN member_type -->
+	<tr>
+		<td class="catSides" colspan="8" height="28"><span class="cattitle">{member_row.member_type.L_TYPE}</span></td>
+	</tr>
+	<!-- END member_type -->
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="{member_row.ROW_CLASS}" align="center"> {member_row.PM_IMG} </td>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	  <td class="{member_row.ROW_CLASS}" align="center" valign="middle"><span class="gen">{member_row.ONLINE_STATUS_IMG}</span></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+# 
+{member_row.U_VIEWPROFILE}" class="gen">{member_row.USERNAME}
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{member_row.U_VIEWPROFILE}" class="gen"
+#
+#-----[ IN-LINE REPLACE WITH ]------------------------------------------
+#
+{member_row.U_VIEWPROFILE}" alt="{L_VIEWPROFILE}" title="{L_VIEWPROFILE}"{member_row.STYLE}
+#
+#-----[ FIND ]------------------------------------------
+#
+<!-- BEGIN switch_no_members -->
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	<tr>
+		<td class="catSides" colspan="9" height="28"><span class="cattitle">{L_GROUP_MEMBERS}</span></td>
+	</tr>
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="row1" colspan="{%:2}"
+#
+#-----[ INCREMENT ]------------------------------------------
+#
+%:2 +1
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="row1" colspan="{%:3}"
+#
+#-----[ INCREMENT ]------------------------------------------
+#
+%:3 +1
+#
+#-----[ FIND ]------------------------------------------
+#
+		<td class="catBottom" colspan="8" align="right">
+			<span class="cattitle"><input type="submit" name="remove" value="{L_REMOVE_SELECTED}" class="mainoption" /></span>
+		</td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+		<td class="catBottom" colspan="8"><table width="100%" cellspacing="0">
+		  <tr>
+			<td class="cattitle" nowrap="nowrap"><input type="submit" name="change_default" value="{L_CHANGE_DEFAULT}" class="mainoption" /><td>
+			<td class="cattitle" align="right" nowrap="nowrap"><input type="submit" name="remove" value="{L_REMOVE_SELECTED}" class="mainoption" />
+			<!-- BEGIN switch_owner_option -->
+			<input type="submit" name="grant_ungrant" value="{L_GRANT_UNGRANT_SELECTED}" class="liteoption" />
+			<!-- END switch_owner_option -->
+		  </td>
+		  </tr>
+		</table></td>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/groupcp_pending_info.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+<th class="thCornerL" height="25">{L_PM}</th>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	  <th class="thTop">{L_ONLINE_STATUS}</th>
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="catSides" colspan="{%:1}"
+#
+#-----[ INCREMENT ]------------------------------------------
+#
+%:1 +1
+#
+#-----[ FIND ]------------------------------------------
+#
+	  <td class="{pending_members_row.ROW_CLASS}" align="center"> {pending_members_row.PM_IMG} 
+	  </td>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	  <td class="{pending_members_row.ROW_CLASS}" align="center"><span class="gen">{pending_members_row.ONLINE_STATUS_IMG}</span></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="cat" colspan="{%:2}"
+#
+#-----[ INCREMENT ]------------------------------------------
+#
+%:2 +1
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/index_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+<table width="100%" cellspacing="0" cellpadding="2" border="0" align="center">
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+<br class="nav" />
+{BDAYS_BOX}
+
+<!-- BEGIN switch_shoutbox -->
+{SHOUTBOX_BODY}
+<!-- END switch_shoutbox -->
+#
+#-----[ FIND ]------------------------------------------
+#
+	<!-- BEGIN switch_user_logged_in -->
+	{LAST_VISIT_DATE}<br />
+	<!-- END switch_user_logged_in -->
+	{CURRENT_TIME}<br /></span><span class="nav"><a href="{U_INDEX}" class="nav">{L_INDEX}</a></span></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	{LAST_VISIT_DATE}<br />
+	{CURRENT_TIME}<br />
+	{S_TIMEZONE}<br /></span>
+</tr>
+</table>
+
+{ANNONCE_GLOBALE}
+
+<table width="100%" cellspacing="0" cellpadding="2" border="0" align="center">
+	<tr>
+	<td align="left" valign="bottom">
+	<span class="nav"><a href="{U_INDEX}" class="nav">{L_INDEX}</a>
+	</td>
+#
+#-----[ FIND ]------------------------------------------
+#
+		<!-- BEGIN switch_user_logged_in -->
+		<a href="{U_SEARCH_NEW}" class="gensmall">{L_SEARCH_NEW}</a><br /><a href="{U_SEARCH_SELF}" class="gensmall">{L_SEARCH_SELF}</a><br />
+		<!-- END switch_user_logged_in -->
+		<a href="{U_SEARCH_UNANSWERED}" class="gensmall">{L_SEARCH_UNANSWERED}</a></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	<!-- BEGIN toolbar -->
+	{toolbar.S_TOOLBAR}
+	<!-- END toolbar -->
+	</td>
+#
+#-----[ FIND ]------------------------------------------
+#
+<table width=
+  <tr> 
+	<th colspan=
+	<th width=
+	<th width=
+	<th class=
+  </tr>
+  <!-- BEGIN catrow -->
+  <tr> 
+	<td class=
+	<td class=
+  </tr>
+  <!-- BEGIN forumrow -->
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+<!-- BEGIN catrow -->
+<table width="100%" cellpadding="2" cellspacing="1" border="0" class="forumline">
+	<tr>
+		<th colspan="5" class="thTop"><a href="{catrow.U_VIEWCAT}" class="cattitle">{catrow.CAT_DESC}</a></th>
+	</tr>
+	<tr>
+		<td colspan="2" class="row2" width="100%" height="25" nowrap="nowrap"><b class="cattitle">{L_FORUM}</b></td>
+		<td width="70" class="row2" align="center" nowrap="nowrap"><b class="cattitle">{L_TOPICS}</b></td>
+		<td width="70" class="row2" align="center" nowrap="nowrap"><b class="cattitle">{L_POSTS}</b></td>
+		<td width="200" class="row2" align="center" nowrap="nowrap"><b class="cattitle">{L_LASTPOST}</b></td>
+	</tr>
+	<!-- BEGIN forumrow -->
+	<!-- IF ! forumrow.PARENT -->
+#
+#-----[ FIND ]------------------------------------------
+#
+	<td class="row1" width="100%" height="50"><span class="forumlink"> <a href="{catrow.forumrow.U_VIEWFORUM}" class="forumlink">{catrow.forumrow.FORUM_NAME}</a><br />
+	  </span> <span class="genmed">{catrow.forumrow.FORUM_DESC}<br />
+	  </span><span class="gensmall">{catrow.forumrow.L_MODERATOR} {catrow.forumrow.MODERATORS}</span></td>
+	<td class="row2" align="center" valign="middle" height="50"><span class="gensmall">{catrow.forumrow.TOPICS}</span></td>
+	<td class="row2" align="center" valign="middle" height="50"><span class="gensmall">{catrow.forumrow.POSTS}</span></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	<td class="{catrow.forumrow.HYPERCELL_CLASS}" width="100%" height="50"><table width="100%" cellpadding="2" cellspacing="0" border="0">
+		<tr><td><a href="{catrow.forumrow.U_VIEWFORUM}" class="forumlink" {catrow.forumrow.FORUM_LINK_TARGET}>{catrow.forumrow.FORUM_ICON_IMG}</a></td>
+			<td width="100%"><span {catrow.forumrow.FORUM_COLOR} class="forumlink"><a href="{catrow.forumrow.U_VIEWFORUM}" {catrow.forumrow.FORUM_COLOR} class="forumlink" {catrow.forumrow.FORUM_LINK_TARGET}>{catrow.forumrow.FORUM_NAME}</a><br />
+  				</span> <span class="genmed">{catrow.forumrow.FORUM_DESC}<br />
+  				</span><!-- IF catrow.forumrow.MODERATORS --><span class="gensmall">{catrow.forumrow.L_MODERATOR} {catrow.forumrow.MODERATORS}<br /></span><!-- ENDIF -->
+  				<!-- BEGIN sub --><!-- DEFINE $HAS_SUB = 1 --><!-- IF catrow.forumrow.sub.NUM > 0 --> <!-- ELSE --><span class="genmed">{L_SUBFORUMS}: <!-- ENDIF -->{catrow.forumrow.sub.LAST_POST_SUB} <a href="{catrow.forumrow.sub.U_VIEWFORUM}" {catrow.forumrow.sub.FORUM_COLOR} <!-- IF catrow.forumrow.sub.UNREAD -->class="topic-new"<!-- ENDIF --> title="{catrow.forumrow.sub.FORUM_DESC_HTML}" {catrow.forumrow.sub.FORUM_LINK_TARGET}>{catrow.forumrow.sub.FORUM_NAME}</a><!-- END sub -->
+	  			<!-- IF $HAS_SUB --></span><!-- UNDEFINE $HAS_SUB --><!-- ENDIF -->
+  			</td>
+  		</tr>
+  	</table>
+		</td>
+	<!-- BEGIN switch_forum_link_off -->
+	<td class="row2" align="center" valign="middle" height="50"><span class="gensmall">{catrow.forumrow.TOTAL_TOPICS}</span></td>
+	<td class="row2" align="center" valign="middle" height="50"><span class="gensmall">{catrow.forumrow.TOTAL_POSTS}</span></td>
+#
+#-----[ FIND ]------------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{catrow.forumrow.LAST_POST}
+#
+#-----[ IN-LINE FIND ]----------------------------------------
+#
+row2
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+{catrow.forumrow.HYPERCELL_CLASS}-right
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	<!-- END switch_forum_link_off -->
+	<!-- BEGIN switch_forum_link_on -->
+	<td class="row2" align="center" valign="middle" height="50" colspan="3"><span class="gensmall">{catrow.forumrow.FORUM_LINK_COUNT}</span></td>
+	<!-- END switch_forum_link_on -->
+#
+#-----[ FIND ]------------------------------------------
+#
+  <!-- END forumrow -->
+  <!-- END catrow -->
+</table>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+  <!-- ENDIF -->
+  <!-- END forumrow -->
+</table>
+<br class="nav" />
+<!-- END catrow -->
+#
+#-----[ FIND ]------------------------------------------
+#
+<table width="100%" cellspacing="0" border="0" align="center" cellpadding="2">
+  <tr> 
+ 	<td align="left">
+ 	<!-- BEGIN switch_user_logged_in -->
+ 		<span class="gensmall"><a href="{U_MARK_READ}" class="gensmall">{L_MARK_FORUMS_READ}</a></span>
+ 	<!-- END switch_user_logged_in -->
+ 	</td>
+	<td align="right"><span class="gensmall">{S_TIMEZONE}</span></td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="3" cellspacing="1" border="0" class="forumline">
+  <tr> 
+	<td class="catHead" colspan="2" height="28"><span class="cattitle"><a href="{U_VIEWONLINE}" class="cattitle">{L_WHO_IS_ONLINE}</a></span></td>
+  </tr>
+  <tr> 
+	<td class="row1" align="center" valign="middle" rowspan="2"><img src="templates/subSilver/images/whosonline.gif" alt="{L_WHO_IS_ONLINE}" /></td>
+	<td class="row1" align="left" width="100%"><span class="gensmall">{TOTAL_POSTS}<br />{TOTAL_USERS}<br />{NEWEST_USER}</span>
+	</td>
+  </tr>
+  <tr> 
+	<td class="row1" align="left"><span class="gensmall">{TOTAL_USERS_ONLINE} &nbsp; [ {L_WHOSONLINE_ADMIN} ] &nbsp; [ {L_WHOSONLINE_MOD} ]<br />{RECORD_USERS}<br />{LOGGED_IN_USER_LIST}</span></td>
+  </tr>
+</table>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+<!-- BEGIN switch_viewonline -->
+<table width="100%" cellpadding="3" cellspacing="1" border="0" class="forumline">
+<tr>
+	<th class="thCornerL" colspan="2" align="left" valign="middle">
+		<a style="float:right" href="#" onClick="doms_toggles.toggle('whoisonline_display', 'whoisonline_close_open', '{I_DOWN_ARROW}', '{I_UP_ARROW}'); return false;" class="postdetails"><img src="{I_DOWN_ARROW}" id="whoisonline_close_open" hspace="2" border="0" /></a>
+		{L_STATISTICS}
+	</th>
+</tr>
+<tr>
+	<td class="row3"><table width="100%" border="0" cellpadding="2" cellspacing="2">
+  <tr>
+    <td width="16"><a href="{U_VIEWONLINE}"><img src="{IMG_WHOISONLINE}" alt="{L_WHO_IS_ONLINE}" title="{L_WHO_IS_ONLINE}" border="0" /></a></td>
+		<td><b class="gen">{L_WHO_IS_ONLINE}</b></td>
+	</tr>
+	</table></td>
+</tr>
+<tr>
+	<td class="row1"><table width="100%" cellpadding="3" cellspacing="1" border="0">
+	<tr>
+		<td class="row1" align="left"><span class="gensmall">{TOTAL_USERS_ONLINE}<br />{LOGGED_IN_USER_LIST}</span></td> 
+	</tr>
+	</table></td>
+</tr>
+<tbody id="whoisonline_display" style="display:{TOGGLE_STATUS}">
+<tr>
+	<td class="row3"><table width="100%" border="0" cellpadding="2" cellspacing="2">
+  <tr>
+    <td width="16"><a href="{U_MEMBERLIST}"><img src="{IMG_OFFLINE}" alt="{L_MEMBERLIST}" title="{L_MEMBERLIST}" border="0" /></a></td>
+		<td><b class="gen">{L_WHO_WAS_ONLINE}</b></td>
+	</tr>
+	</table></td>
+</tr>
+<tr>
+	<td class="row1"><table width="100%" cellpadding="3" cellspacing="1" border="0">
+	<tr>
+		<td class="row1" align="left"><span class="gensmall">{L_TOTAL_TODAY}{TOTAL_TODAY_USERS}<br />{TOTAL_HOUR_USERS}<br />{L_REGISTERED_USERS} {S_TODAY_USERLIST}</span></td>
+	</tr>
+	</table></td>
+</tr>
+<tr>
+	<td class="row3"><table width="100%" border="0" cellpadding="2" cellspacing="2">
+  <tr>
+    <td width="16"><img src="{IMG_STATISTICS}" alt="{L_STATISTICS}" title="{L_STATISTICS}" border="0" /></td>
+		<td><b class="gen">{L_STATISTICS}</b></td>
+	</tr>
+	</table></td>
+</tr>
+<tr>
+	<td class="row1"><table width="100%" cellpadding="3" cellspacing="1" border="0">
+	<tr>
+		<td class="row1" align="left"><span class="gensmall">{TOTAL_POSTS}{TOTAL_TOPICS}<br />{TOTAL_USERS}<br />{NEWEST_USER}&nbsp;-&nbsp;{L_NEWEST_FROM}&nbsp;<img width="14" height="9" border="0" src="images/flags/small/{NEWEST_FLAG}.png" alt="{NEWEST_COUNTRY}" title="{NEWEST_COUNTRY}" /><br />{RECORD_USERS}</span></td>
+	</tr>
+	</table></td>
+</tr>
+</tbody>
+<tr>
+ 	<td class="row1"><span class="gensmall">
+ 		<strong>{L_LEGEND}:</strong>
+ 		<!-- BEGIN legend -->
+ 		[&nbsp;<a href="{switch_viewonline.legend.U_RANK}"{switch_viewonline.legend.RANK_STYLE}>{switch_viewonline.legend.RANK_NAME}</a>&nbsp;]
+ 		<!-- END legend -->
+ 	</span></td>
+</tr>
+</table>
+<!-- END switch_viewonline -->
+#
+#-----[ FIND ]------------------------------------------
+#
+<input class="text" type="checkbox" name="autologin" />
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+type="checkbox"
+#
+#-----[ IN-LINE AFTER, ADD ]------------------------------------------
+#
+ checked="checked"
+#
+#-----[ FIND ]------------------------------------------
+#
+<td><span class="gensmall">{L_FORUM_LOCKED}</span></td>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	<td>&nbsp;&nbsp;</td>
+	<td width="20" align="center"><img src="templates/subSilver/images/folder_link.gif" alt="{L_FORUM_LINK}" /></td>
+	<td><span class="gensmall">{L_FORUM_LINK}</span></td>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/login_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+<td colspan="2"><span class="gen">{L_AUTO_LOGIN}: <input type="checkbox" name="autologin" /></span></td>
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+type="checkbox"
+#
+#-----[ IN-LINE AFTER, ADD ]------------------------------------------
+#
+ checked="checked"
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/memberlist_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+<form method="post" action="{S_MODE_ACTION}">
+  <table width="100%" cellspacing="2" cellpadding="2" border="0" align="center">
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	<tr>
+	  <td colspan="2" align="right" nowrap="nowrap"><span class="genmed">{L_SORT_PER_LETTER}:&nbsp;{S_LETTER_SELECT}{S_LETTER_HIDDEN}</span></td>
+	</tr>
+#
+#-----[ FIND ]------------------------------------------
+#
+<th class="thTop" nowrap="nowrap">{L_USERNAME}</th>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+	  <th class="thTop" nowrap="nowrap">{L_ONLINE_STATUS}</th>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	  <th class="thTop" nowrap="nowrap">{L_COUNTRY}</th>
+#
+#-----[ FIND ]------------------------------------------
+#
+<th class="thTop" nowrap="nowrap">{L_POSTS}</th>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+	  <th class="thTop" nowrap="nowrap">{L_VISITED}</th>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	  <th class="thTop" nowrap="nowrap">{L_TOPICS}</th>
+	  <th class="thTop" nowrap="nowrap">{L_POINTS}</th>
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="{memberrow.ROW_CLASS}" align="center">&nbsp;{memberrow.PM_IMG}&nbsp;</td>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	  <td class="{memberrow.ROW_CLASS}" align="center" valign="middle"><span class="gen">{memberrow.ONLINE_STATUS_IMG}</span></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+# 
+{memberrow.U_VIEWPROFILE}" class="gen">{memberrow.USERNAME}
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{memberrow.U_VIEWPROFILE}" class="gen"
+#
+#-----[ IN-LINE REPLACE WITH ]------------------------------------------
+#
+{memberrow.U_VIEWPROFILE}" alt="{memberrow.L_VIEWPROFILE}" title="{memberrow.L_VIEWPROFILE}"{memberrow.STYLE}
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="{memberrow.ROW_CLASS}" align="center" valign="middle">&nbsp;{memberrow.EMAIL_IMG}&nbsp;</td>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+	  <td class="{memberrow.ROW_CLASS}" align="center"><img src="images/flags/{memberrow.FLAG}.png" width="18" height="12" title="{memberrow.COUNTRY}" /></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="{memberrow.ROW_CLASS}" align="center" valign="middle"><span class="gen">{memberrow.POSTS}</span></td>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+	  <td class="{memberrow.ROW_CLASS}" align="center" valign="middle"><span class="gensmall">{memberrow.VISITED}</span></td>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	  <td class="{memberrow.ROW_CLASS}" align="center" valign="middle"><span class="gen">{memberrow.TOPICS}</span></td>
+	  <td class="{memberrow.ROW_CLASS}" align="center" valign="middle"><span class="gen">{memberrow.POINTS}</span></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="catBottom" colspan="{%:1}"
+#
+#-----[ INCREMENT ]------------------------------------------
+#
+%:1 +5
+#
+#-----[ FIND ]------------------------------------------
+#
+</form>
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+</form>
+#
+#-----[ IN-LINE BEFORE, ADD ]------------------------------------------
+#
+{S_HIDDEN_FIELDS}
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/modcp_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+<form method="post" action="{S_MODCP_ACTION}">
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+<script language="javascript" type="text/javascript">
+<!--
+function select_switch(status)
+{
+	for (i = 0; i < document.modcpForm.length; i++)
+	{
+		document.modcpForm.elements[i].checked = status;
+	}
+}
+//-->
+</script>
+
+<form method="post" action="{S_MODCP_ACTION}" name="modcpForm">
+#
+#-----[ FIND ]------------------------------------------
+#
+<a href="{U_INDEX}" class="nav">{L_INDEX}</a>
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+</a>
+#
+#-----[ IN-LINE AFTER, ADD ]------------------------------------------
+#
+ -> <a href="{U_CAT}" class="nav">{CAT_NAME}</a> <!-- IF PARENT_FORUM --> -> <a class="nav" href="{U_VIEW_PARENT_FORUM}">{PARENT_FORUM_NAME}</a> <!-- ENDIF -->
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="catHead" colspan="{%:1}"
+#
+#-----[ INCREMENT ]------------------------------------------
+#
+%:1 +3
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="row2" colspan="{%:2}"
+#
+#-----[ INCREMENT ]------------------------------------------
+#
+%:2 +3
+#
+#-----[ FIND ]------------------------------------------
+#
+<th width="8%" nowrap="nowrap">&nbsp;{L_REPLIES}&nbsp;</th>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	  <th width="15%" nowrap="nowrap">&nbsp;{L_AUTHOR}&nbsp;</th>
+	  <th width="16%" nowrap="nowrap">&nbsp;{L_CREATE_DATE}&nbsp;</th>
+	  <th width="8%" nowrap="nowrap">&nbsp;{L_VIEWS}&nbsp;</th>
+#
+#-----[ FIND ]------------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{topicrow.TOPIC_TYPE}
+#
+#-----[ IN-LINE FIND ]----------------------------------------
+#
+row1
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+{topicrow.HYPERCELL_CLASS}
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{topicrow.TOPIC_TYPE}
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{topicrow.TOPIC_TYPE}
+#
+#-----[ IN-LINE BEFORE, ADD ]------------------------------------------
+#
+{topicrow.TOPIC_ATTACHMENT_IMG}
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{topicrow.REPLIES}</span></td>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	  <td class="row3" align="center" valign="middle"><span class="name">{topicrow.TOPIC_AUTHOR}</span></td>
+	  <td class="row3" align="center" valign="middle"><span class="name">{topicrow.FIRST_POST_TIME}</span></td>
+	  <td class="row2" align="center" valign="middle"><span class="postdetails">{topicrow.VIEWS}</span></td>
+#
+#-----[ FIND ]------------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{topicrow.LAST_POST_TIME}
+#
+#-----[ IN-LINE FIND ]----------------------------------------
+#
+row1
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+{topicrow.HYPERCELL_CLASS}
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{topicrow.LAST_POST_TIME}
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{topicrow.LAST_POST_TIME}
+#
+#-----[ IN-LINE AFTER, ADD ]------------------------------------------
+#
+<br />{topicrow.LAST_POST_AUTHOR} {topicrow.LAST_POST_IMG}
+#
+#-----[ FIND ]------------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<td
+{topicrow.TOPIC_ID}
+#
+#-----[ IN-LINE FIND ]----------------------------------------
+#
+row2
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+row3Right
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="catBottom" colspan="{%:3}"
+#
+#-----[ INCREMENT ]------------------------------------------
+#
+%:3 +3
+#
+#-----[ FIND ]------------------------------------------
+#
+<input type="submit" name="unlock" class="liteoption" value="{L_UNLOCK}" />
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+		&nbsp;
+		<input type="submit" name="merge" class="liteoption" value="{L_MERGE}" />
+		&nbsp;
+		<input type="submit" class="liteoption" name="recycle" value="{L_RECYCLE}" />
+		&nbsp;
+		{SELECT_TITLE}
+		&nbsp;
+		<input type="submit" name="quick_title_edit" class="liteoption" value="{L_EDIT_TITLE}" />
+#
+#-----[ FIND ]------------------------------------------
+#
+<td align="right" valign="top" nowrap="nowrap"><span class="gensmall">{S_TIMEZONE}</span><br /><span class="nav">{PAGINATION}</span></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	<td align="right" valign="top" nowrap="nowrap">
+		<span class="gensmall"><b><a href="javascript:select_switch(true);">{L_MARK_ALL}</a>&nbsp;::&nbsp;<a href="javascript:select_switch(false);">{L_UNMARK_ALL}</a></b><br />
+		{S_TIMEZONE}</span><br /><span class="nav">{PAGINATION}</span>
+	</td>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/modcp_split.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+<a href="{U_INDEX}" class="nav">{L_INDEX}</a><span class="nav"> 
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+<a href="{U_INDEX}" class="nav">{L_INDEX}</a><span class="nav"> 
+#
+#-----[ IN-LINE AFTER, ADD ]------------------------------------------
+#
+ -> <a href="{U_CAT}" class="nav">{CAT_NAME}</a> <!-- IF PARENT_FORUM --> -> <a class="nav" href="{U_VIEW_PARENT_FORUM}">{PARENT_FORUM_NAME}</a> <!-- ENDIF -->
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/overall_footer.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+</body>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+<br class="nav" />
+<table cellpadding="2" cellspacing="1" border="0" width="100%" class="bodyline">
+<tr>
+	<td class="gensmall" colspan="2" align="center"><span class="copyright">{STATISTICS}</span></td>
+</tr>
+</table>
+
+<a name="bot" id="bot"></a>
+
+<div style="display:none" id="resizemod"></div>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/overall_header.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+{META}
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+<meta http-equiv="Content-Language" content="{META_LANGUAGE}" />
+<meta name="author" content="{META_AUTHOR}" />
+<meta name="keywords" content="{META_KEYWORDS}" />
+<meta name="description" content="{META_DESCRIPTION}" />
+<meta name="robots" content="{META_ROBOTS}" />
+<meta name="rating" content="{META_RATING}" />
+<meta name="revisit-after" content="{META_VISIT_AFTER}" />
+#
+#-----[ FIND ]------------------------------------------
+#
+<title>{SITENAME} :: {PAGE_TITLE}</title>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+<link rel="icon" href="{FAVICON_ICON}" type="image/ico" />
+#
+#-----[ FIND ]------------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{T_HEAD_STYLESHEET}
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+# Add these lines on a new blank line after the preceding line(s) to find
+#
+<link rel="stylesheet" type="text/css" href="./templates/{HYPERCELL_PATH}/hypercell.css" media="screen">
+<!--[if IE]>
+<style type="text/css" media="screen">
+/* This experiment is try to emulate the :hover pseudo-class
+   and its dynamic effect on Internet Explorer 5+, because IE support
+   :hover only on A (anchor) element */
+.hccRow, .hccRow-new, .hccRow-locked, .hccRow-locked-new, .hccRow-moved, .hccRow-link,
+.hccRow-announce, .hccRow-announce-new, .hccRow-sticky, .hccRow-sticky-new, .hccRow-hot, .hccRow-hot-new,
+.row3Right, .hccRow-right, .hccRow-new-right, .hccRow-locked-right, .hccRow-locked-new-right, .hccRow-moved-right,
+.hccRow-announce-right, .hccRow-announce-new-right, .hccRow-sticky-right, .hccRow-sticky-new-right,
+.hccRow-hot-right, .hccRow-hot-new-right { behavior: url("./templates/{HYPERCELL_PATH}/hover.htc"); }
+</style>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="./templates/{T_TEMPLATE_NAME}/rcs_stylesheet.css" media="all">
+
+<script type="text/javascript">
+//<![CDATA[
+<!--
+
+var rmw_max_width = '{IMAGES_MAX_SIZE}';
+var rmw_border_1 = '1px solid {T_BODY_LINK}';
+var rmw_border_2 = '2px dotted {T_BODY_LINK}';
+var rmw_image_title = '{L_RMW_IMAGE_TITLE}';
+
+//-->
+//]]>
+</script>
+<script type="text/javascript" src="templates/rmw_jslib.js" type="text/javascript"></script>
+#
+#-----[ FIND ]------------------------------------------
+#
+</head>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+<script language="javascript" src="templates/transparency.js" type="text/javascript"></script>
+<link rel="stylesheet" href="{BBC_BOX_SHEET}" type="text/css">
+<script language="javascript" src="templates/bbc_box/fade.js" type="text/javascript"></script>
+<!--[if lt IE 7.]>
+<script defer type="text/javascript" src="templates/pngfix.js"></script>
+<![endif]-->
+<script language="javascript" type="text/javascript" src="templates/rmwa_jslib.js"></script>
+<script language="javascript" type="text/javascript" src="templates/js_doms_toggles.js"></script>
+<script language="javascript" type="text/javascript" src="templates/js_dom_toggle.js"></script>
+<script language="javascript" type="text/javascript" src="templates/gradualshine.js"></script>
+#
+#-----[ FIND ]------------------------------------------
+#
+<a name="top"></a>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+<iframe src="{INSTANT_MSG}" height="0" width="0" frameborder="0"></iframe>
+#
+#-----[ FIND ]------------------------------------------
+#
+				<td><a href="{U_INDEX}"><img src="templates/subSilver/images/logo_phpBB.gif" border="0" alt="{L_INDEX}" vspace="1" /></a></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+				<td><a href="{U_INDEX}"><img src="{SITE_LOGO}" border="0" alt="{SITENAME}" title="{SITENAME}" vspace="1" /></a></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+					<tr> 
+						<td align="center" valign="top" nowrap="nowrap"><span class="mainmenu">&nbsp;<a href="{U_FAQ}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_faq.gif" width="12" height="13" border="0" alt="{L_FAQ}" hspace="3" />{L_FAQ}</a>&nbsp; &nbsp;<a href="{U_SEARCH}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_search.gif" width="12" height="13" border="0" alt="{L_SEARCH}" hspace="3" />{L_SEARCH}</a>&nbsp; &nbsp;<a href="{U_MEMBERLIST}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_members.gif" width="12" height="13" border="0" alt="{L_MEMBERLIST}" hspace="3" />{L_MEMBERLIST}</a>&nbsp; &nbsp;<a href="{U_GROUP_CP}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_groups.gif" width="12" height="13" border="0" alt="{L_USERGROUPS}" hspace="3" />{L_USERGROUPS}</a>&nbsp; 
+						<!-- BEGIN switch_user_logged_out -->
+						&nbsp;<a href="{U_REGISTER}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_register.gif" width="12" height="13" border="0" alt="{L_REGISTER}" hspace="3" />{L_REGISTER}</a>&nbsp;
+						<!-- END switch_user_logged_out -->
+						</span></td>
+					</tr>
+					<tr>
+						<td height="25" align="center" valign="top" nowrap="nowrap"><span class="mainmenu">&nbsp;<a href="{U_PROFILE}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_profile.gif" width="12" height="13" border="0" alt="{L_PROFILE}" hspace="3" />{L_PROFILE}</a>&nbsp; &nbsp;<a href="{U_PRIVATEMSGS}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_message.gif" width="12" height="13" border="0" alt="{PRIVATE_MESSAGE_INFO}" hspace="3" />{PRIVATE_MESSAGE_INFO}</a>&nbsp; &nbsp;<a href="{U_LOGIN_LOGOUT}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_login.gif" width="12" height="13" border="0" alt="{L_LOGIN_LOGOUT}" hspace="3" />{L_LOGIN_LOGOUT}</a>&nbsp;</span></td>
+					</tr>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+					<tr>
+						<td align="center" valign="top" nowrap="nowrap"><span class="mainmenu">
+						<!-- BEGIN switch_faq -->
+						&nbsp;<a href="{U_FAQ}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_faq.gif" width="12" height="13" border="0" alt="{L_FAQ}" hspace="3" />{L_FAQ}</a>&nbsp;
+						<!-- END switch_faq -->
+						<!-- BEGIN switch_search -->
+						&nbsp;<a href="{U_SEARCH}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_search.gif" width="12" height="13" border="0" alt="{L_SEARCH}" hspace="3" />{L_SEARCH}</a>&nbsp;
+						<!-- END switch_search -->
+						<!-- BEGIN switch_memberlist -->
+						&nbsp;<a href="{U_MEMBERLIST}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_members.gif" width="12" height="13" border="0" alt="{L_MEMBERLIST}" hspace="3" />{L_MEMBERLIST}</a>&nbsp;
+						<!-- END switch_memberlist -->
+						<!-- BEGIN switch_groups -->
+						&nbsp;<a href="{U_GROUP_CP}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_groups.gif" width="12" height="13" border="0" alt="{L_USERGROUPS}" hspace="3" />{L_USERGROUPS}</a>&nbsp;
+						<!-- END switch_groups -->
+						<!-- BEGIN switch_cell -->
+						&nbsp;<a href="{U_COURTHOUSE}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_justice.gif" width="12" height="13" border="0" alt="{L_COURTHOUSE}" hspace="3" />{L_COURTHOUSE}</a>&nbsp;
+						<!-- END switch_cell -->
+						<!-- BEGIN switch_user_logged_out -->
+						&nbsp;<a href="{U_REGISTER}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_register.gif" width="12" height="13" border="0" alt="{L_REGISTER}" hspace="3" />{L_REGISTER}</a>&nbsp;
+						<!-- END switch_user_logged_out -->
+						</span></td>
+					</tr>
+					<tr>
+						<td align="center" valign="top" nowrap="nowrap"><span class="mainmenu">
+						&nbsp;<a href="{U_PROFILE}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_profile.gif" width="12" height="13" border="0" alt="{L_PROFILE}" hspace="3" />{L_PROFILE}</a>&nbsp;
+						&nbsp;<a href="{U_PRIVATEMSGS}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_message.gif" width="12" height="13" border="0" alt="{PRIVATE_MESSAGE_INFO}" hspace="3" />{PRIVATE_MESSAGE_INFO}</a>&nbsp;
+						<!-- BEGIN switch_admin_link -->
+						&nbsp;<a href="{U_ADMIN_LINK}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_admin_panel.gif" width="12" height="13" border="0" alt="{L_ADMIN_LINK}" hspace="3" />{L_ADMIN_LINK}</a>&nbsp;
+						<!-- END switch_admin_link -->
+						&nbsp;<a href="{U_LOGIN_LOGOUT}" class="mainmenu"><img src="templates/subSilver/images/icon_mini_login.gif" width="12" height="13" border="0" alt="{L_LOGIN_LOGOUT}" hspace="3" />{L_LOGIN_LOGOUT}</a>&nbsp;
+						</span></td>
+					</tr>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/posting_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+# this is a partial search : the full lines are longer
+# 
+<script language="JavaScript" type="text/javascript">
+<!--
+// bbCode control by
+// subBlue design
+// www.subBlue.com
+
+//
+var imageTag
+var theSelection
+
+//
+//
+var clientPC =
+var clientVer =
+
+var is_ie =
+var is_nav =
+                &&
+                &&
+var is_moz =
+
+var is_win =
+var is_mac =
+
+//
+b_help =
+i_help =
+u_help =
+q_help =
+c_help =
+l_help =
+o_help =
+p_help =
+w_help =
+a_help =
+s_help =
+f_help =
+
+//
+bbcode =
+bbtags =
+imageTag =
+
+//
+function helpline(
+	document.post.helpbox.value =
+}
+
+
+//
+function getarraysize(
+	for
+		if
+			return
+		}
+	return
+}
+
+//
+//
+function arraypush(
+	thearray[
+}
+
+//
+//
+function arraypop(
+	thearraysize =
+	retval =
+	delete thearray[
+	return
+}
+
+
+function checkForm(
+
+	formErrors =
+
+	if
+		formErrors =
+	}
+
+	if
+		alert(
+		return
+	} else
+		bbstyle
+		//
+		//
+		return
+	}
+}
+
+function emoticon(
+	var txtarea =
+	text =
+	if
+		var caretPos =
+		caretPos.text =
+		txtarea.focus(
+	} else
+		txtarea.value
+		txtarea.focus(
+	}
+}
+
+function bbfontstyle(
+	var txtarea =
+
+	if
+		theSelection =
+		if
+			txtarea.value
+			txtarea.focus(
+			return
+		}
+		document.selection.createRange(
+		txtarea.focus(
+		return
+	}
+	else if
+	{
+		mozWrap(
+		return
+	}
+	else
+	{
+		txtarea.value
+		txtarea.focus(
+	}
+	storeCaret(
+}
+
+
+function bbstyle(
+	var txtarea =
+
+	txtarea.focus(
+	donotinsert =
+	theSelection =
+	bblast =
+
+	if (bbnumber
+		while
+			butnumber =
+			txtarea.value
+			buttext =
+			eval('
+		}
+		imageTag =
+		txtarea.focus(
+		return
+	}
+
+	if ((clientVer >= 4
+	{
+		theSelection =
+		if
+			//
+			document.selection.createRange(
+			txtarea.focus(
+			theSelection =
+			return
+		}
+	}
+	else if
+	{
+		mozWrap(
+		return
+	}
+	
+	//
+	for (i
+		if (bbcode[i]
+			bblast =
+			donotinsert =
+		}
+	}
+
+	if (donotinsert
+		while
+				butnumber =
+				txtarea.value
+				buttext =
+				eval('
+				imageTag =
+			}
+			txtarea.focus(
+			return
+	} else
+	
+		if (imageTag
+			txtarea.value
+			lastValue =
+			document.post.addbbcode14.value =
+			imageTag =
+		}
+		
+		//
+		txtarea.value
+		if ((bbnumber
+		arraypush(
+		eval('
+		txtarea.focus(
+		return
+	}
+	storeCaret(
+}
+
+//
+function mozWrap(
+{
+	var selLength =
+	var selStart =
+	var selEnd =
+	if (selEnd
+		selEnd =
+
+	var s1 =
+	var s2 =
+	var s3 =
+	txtarea.value =
+	return
+}
+
+//
+//
+function storeCaret(
+	if (textEl.createTextRange
+}
+
+//-->
+</script>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+{BBC_JS_BOX}
+#
+#-----[ FIND ]------------------------------------------
+#
+<form action="{S_POST_ACTION}" method="post" name="post" onsubmit="return checkForm(this)">
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+checkForm(this)"
+#
+#-----[ IN-LINE AFTER, ADD ]------------------------------------------
+#
+ {S_FORM_ENCTYPE}
+#
+#-----[ FIND ]------------------------------------------
+#
+<!-- BEGIN switch_not_privmsg -->
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+		-> <a href="{U_CAT}" class="nav">{CAT_NAME}</a>
+		<!-- IF PARENT_FORUM --> -> <a class="nav" href="{U_VIEW_PARENT_FORUM}">{PARENT_FORUM_NAME}</a> <!-- ENDIF -->
+#
+#-----[ FIND ]------------------------------------------
+#
+	<tr> 
+	  <td class="row1" valign="top"> 
+		<table width="100%" border="0" cellspacing="0" cellpadding="1">
+		  <tr> 
+			<td><span class="gen"><b>{L_MESSAGE_BODY}</b></span> </td>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+	<!-- BEGIN switch_sub_title -->
+	<tr>
+		<td class="row1" width="22%"><b class="gen">{L_SUB_TITLE}</b></td>
+		<td class="row2" width="78%"><span class="gen">
+		<input type="text" name="sub_title" size="45" maxlength="{SUB_TITLE_LENGTH}" style="width:450px;" tabindex="2" class="post" value="{SUB_TITLE}" />
+		</span></td>
+	</tr>
+	<!-- END switch_sub_title -->
+	<!-- BEGIN switch_icon_checkbox -->
+	<tr>
+		<td valign="top" class="row1"><span class="gen"><b>{L_ICON_TITLE}</b></td>
+		<td class="row2">
+			<table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<!-- BEGIN row -->
+			<tr>
+				<td nowrap="nowrap">
+					<span class="gen">
+						<!-- BEGIN cell -->
+						<input type="radio" name="post_icon" value="{switch_icon_checkbox.row.cell.ICON_ID}"{switch_icon_checkbox.row.cell.ICON_CHECKED}>&nbsp;{switch_icon_checkbox.row.cell.ICON_IMG}&nbsp;&nbsp;
+						<!-- END cell -->
+					</span>
+				</td>
+			</tr>
+			<!-- END row -->
+			</table>
+		</td>
+	</tr>
+	<!-- END switch_icon_checkbox -->
+#
+#-----[ FIND ]------------------------------------------
+#
+<td><a href="javascript:emoticon('{smilies_row.smilies_col.SMILEY_CODE}')"><img src="{smilies_row.smilies_col.SMILEY_IMG}" border="0" alt="{smilies_row.smilies_col.SMILEY_DESC}" title="{smilies_row.smilies_col.SMILEY_DESC}" /></a></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+			<td><img src="{smilies_row.smilies_col.SMILEY_IMG}" border="0" onmouseover="this.style.cursor='hand';" onclick="emoticon('{smilies_row.smilies_col.SMILEY_CODE}');" alt="{smilies_row.smilies_col.SMILEY_DESC}" title="{smilies_row.smilies_col.SMILEY_DESC}" /></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+				<!-- END switch_smilies_extra -->
+			  </table>
+			</td>
+		  </tr>
+#
+#-----[ AFTER, ADD ]-------------------------------------------
+#
+		  <!-- BEGIN smiley_category -->
+		  <tr>
+			<td align="center" class="gensmall"><br /><b>{L_SMILEY_CATEGORIES}</b></td>
+		  </tr>
+		  <!-- BEGIN buttons -->
+		  <tr><td align="center"><input {smiley_category.buttons.TYPE} name="_phpbbsmilies" {smiley_category.buttons.VALUE} onClick="window.open('{smiley_category.buttons.CAT_MORE_SMILIES}', '_phpbbsmilies', 'HEIGHT=300,resizable=yes,scrollbars=yes,WIDTH=410'); return false;" onMouseOver="helpline('{smiley_category.buttons.NAME}')" /></td></tr>
+		  <!-- END buttons -->
+		  <!-- BEGIN dropdown -->
+		  <tr><td align="center">{smiley_category.dropdown.OPTIONS}</td></tr>
+		  <!-- END dropdown -->
+		  <!-- END smiley_category -->
+#
+#-----[ FIND ]------------------------------------------
+#
+# this is a partial search : the full lines are longer
+# 
+	  <td class="row2" valign="top"
+		<table width="450" border="0"
+		  <tr
+			<td>
+			  <input type="button" class="button" accesskey="b"
+			  </span></td>
+			<td>
+			  <input type="button" class="button" accesskey="i"
+			  </span></td>
+			<td>
+			  <input
+			  </span></td>
+			<td>
+			  <input
+			  </span></td>
+			<td>
+			  <input
+			  </span></td>
+			<td>
+			  <input
+			  </span></td>
+			<td>
+			  <input
+			  </span></td>
+			<td>
+			  <input
+			  </span></td>
+			<td>
+			  <input
+			  </span></td>
+		  </tr>
+		  <tr> 
+			<td colspan
+			  <table
+				<tr> 
+				  <td>
+					<select name="addbbcode18"
+					  <option style=
+					  <option style=
+					  <option style=
+					  <option style=
+					  <option style=
+					  <option style=
+					  <option style=
+					  <option style=
+					  <option style=
+					  <option style=
+					  <option style=
+					  <option style=
+					  <option style=
+					  <option style=
+					  <option style=
+					</select>
+					  <option value="7"
+					  <option value=
+					  <option value=
+					  <option value=
+					  <option  value=
+					</select>
+					</span></td>
+				  <td nowrap="nowrap"
+				</tr>
+			  </table>
+			</td>
+		  </tr>
+		  <tr>
+			<td colspan="9"
+			  <input type="text" name="helpbox"
+			  </td>
+		  </tr>
+		  <tr>
+			<td colspan="9"
+			  <textarea name="message"
+			  </td>
+		  </tr>
+		</table>
+		</span></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	  <td class="row2" valign="top"><table cellspacing="0" cellpadding="2" border="0">
+		{BBC_DISPLAY_BOX}
+		<tr>
+			<td><textarea name="message" rows="15" cols="76" wrap="virtual" style="width:450px" tabindex="3" class="post" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);">{MESSAGE}</textarea></td>
+		</tr>
+	  </table></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+<!-- END switch_delete_checkbox -->
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+		  <!-- BEGIN switch_lock_checkbox --> 
+		  <tr> 
+				<td><input type="checkbox" name="lock_status" {S_LOCKED_BOX} /></td> 
+				<td><span class="gen">{L_LOCK_MSG}</span></td> 
+		  </tr> 
+		  <!-- END switch_lock_checkbox -->
+#
+#-----[ FIND ]------------------------------------------
+#
+{POLLBOX}
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+	{ATTACHBOX}
+	{EXT_HOSTBOX}
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/posting_poll_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+<!-- BEGIN poll_option_rows -->
+<tr>
+	<td class=
+	<td class=
+</tr>
+<!-- END poll_option_rows -->
+<tr>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+            <tr>
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<td class="row2"><span class="genmed"><input type="text" name="add_poll_option_text"
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+<input type="text" name="add_poll_option_text" size="50" maxlength="255" class="post" value="{ADD_POLL_OPTION}" /></span> &nbsp;<input type="submit" name="add_poll_option" value="{L_ADD_OPTION}" class="liteoption" />
+#
+#-----[ IN-LINE REPLACE WITH ]------------------------------------------
+#
+<textarea rows="{POLL_MAX_OPTIONS}" class="post" name="poll_option_text" style="width: 312px;">{POLL_OPTION}</textarea></span>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/posting_preview.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{POST_SUBJECT}</span></td>
+#
+#-----[ IN-LINE FIND ]----------------------------------------
+#
+{POST_SUBJECT}</span></td>
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+{POST_SUBJECT}
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+# Add these lines on a new blank line after the preceding line(s) to find
+#
+			<!-- BEGIN sub_title -->
+			&nbsp;&nbsp;&nbsp;{L_SUB_TITLE}: {sub_title.SUB_TITLE}
+			<!-- END sub_title -->
+		</span></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+				<td>
+					<span class="postbody">{MESSAGE}</span>
+				</td>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+				<!-- BEGIN postrow -->
+				{ATTACHMENTS}
+				<!-- END postrow -->
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/posting_topic_review.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{postrow.POST_DATE}<span class="gen">&nbsp;</span>&nbsp;&nbsp;&nbsp;{L_POST_SUBJECT}: {postrow.POST_SUBJECT}</span></td>
+#
+#-----[ IN-LINE FIND ]----------------------------------------
+#
+{postrow.POST_DATE}<span class="gen">&nbsp;</span>&nbsp;&nbsp;&nbsp;{L_POST_SUBJECT}: {postrow.POST_SUBJECT}</span></td>
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+{postrow.POST_DATE}
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+# Add these lines on a new blank line after the preceding line(s) to find
+#
+					<br /><img src="{postrow.MINI_POST_IMG}" width="12" height="9" alt="" title="{L_POST_SUBJECT}" border="0" />{L_POST_SUBJECT}: {postrow.POST_SUBJECT}
+					<!-- BEGIN sub_title -->
+					<br /><img src="{postrow.MINI_POST_IMG}" width="12" height="9" alt="" title="{L_SUB_TITLE}" border="0" />{L_SUB_TITLE}: {postrow.sub_title.SUB_TITLE}
+					<!-- END sub_title -->
+				</span></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+<td colspan="2"><span class="postbody">{postrow.MESSAGE}</span></td>
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{postrow.MESSAGE}</span>
+#
+#-----[ IN-LINE AFTER, ADD ]------------------------------------------
+#
+{postrow.ATTACHMENTS}
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/privmsgs_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+<table border="0" cellspacing="0" cellpadding="0" align="center" width="100%">
+  <tr>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	<td align="right">
+	<!-- BEGIN switch_box_size_notice -->
+	<table class="forumline" width="189" cellspacing="1" cellpadding="2" border="0">
+	<tr> 
+	  <td colspan="4" width="189" class="row1" nowrap="nowrap" align="center"><span class="gensmall">{ATTACH_BOX_SIZE_STATUS}</span></td>
+	</tr>
+	<tr> 
+	  <td colspan="4" width="189" class="row2"><table cellspacing="0" cellpadding="1" border="0">
+		<tr>
+			<td><img src="templates/subSilver/images/vote_lcap.gif" width="4" height="12" alt="{ATTACH_LIMIT_PERCENT}" /><img src="templates/subSilver/images/voting_bar.gif" width="{ATTACHBOX_LIMIT_IMG_WIDTH}" height="12" alt="{ATTACH_LIMIT_PERCENT}" /><img src="templates/subSilver/images/vote_rcap.gif" width="4" height="12" alt="{ATTACH_LIMIT_PERCENT}" /></td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	<tr>
+		<td width="33%" class="row1"><span class="gensmall">0%</span></td>
+		<td width="34%" align="center" class="row1"><span class="gensmall">50%</span></td>
+		<td width="33%" align="right" class="row1"><span class="gensmall">100%</span></td>
+	</tr>
+	</table>
+	<!-- END switch_box_size_notice -->
+	</td>
+#
+#-----[ FIND ]------------------------------------------
+#
+		<td>{SAVEBOX_IMG}</td>
+		<td><span class="cattitle">{SAVEBOX} &nbsp;</span></td>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+	  </tr>
+	  <tr valign="middle">
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+			<td>{TRASHBOX_IMG}</td>
+			<td><span class="cattitle">{TRASHBOX} &nbsp;</span></td>
+			<td>{EXPORT_IMG}</td>
+			<td><span class="cattitle">{EXPORT} &nbsp;</span></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+	  <table width="175" cellspacing="1" cellpadding="2" border="0" class="bodyline">
+		<tr> 
+		  <td colspan="3" width="175" class="row1" nowrap="nowrap"><span class="gensmall">{BOX_SIZE_STATUS}</span></td>
+		</tr>
+		<tr> 
+		  <td colspan="3" width="175" class="row2">
+			<table cellspacing="0" cellpadding="1" border="0">
+			  <tr> 
+				<td bgcolor="{T_TD_COLOR2}"><img src="templates/subSilver/images/spacer.gif" width="{INBOX_LIMIT_IMG_WIDTH}" height="8" alt="{INBOX_LIMIT_PERCENT}" /></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	  <table class="forumline" width="189" cellspacing="1" cellpadding="2" border="0">
+		<tr> 
+		  <td colspan="4" width="189" class="row1" nowrap="nowrap" align="center"><span class="gensmall">{BOX_SIZE_STATUS}</span></td>
+		</tr>
+		<tr> 
+		  <td colspan="4" width="189" class="row2"><table cellspacing="0" cellpadding="1" border="0">
+			<tr>
+				<td><img src="templates/subSilver/images/vote_lcap.gif" width="4" height="12" alt="{BOX_SIZE_STATUS}" /><img src="templates/subSilver/images/voting_bar.gif" width="{INBOX_LIMIT_IMG_WIDTH}" height="12" alt="{BOX_SIZE_STATUS}" /><img src="templates/subSilver/images/vote_rcap.gif" width="4" height="12" alt="{BOX_SIZE_STATUS}" /></td>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/privmsgs_preview.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+	<td valign="top" colspan="2" class="row1"><span class="postbody">{MESSAGE}</span></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	<td valign="top" colspan="2" class="row1"><span class="postbody">{MESSAGE}</span>
+	<!-- BEGIN postrow -->
+	{ATTACHMENTS}
+	<!-- END postrow -->
+	</td>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/privmsgs_read_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+	<td valign="middle"><span class="cattitle">{OUTBOX} &nbsp;</span></td>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+  </tr>
+  <tr>
+#
+#-----[ FIND ]------------------------------------------
+#
+	<td valign="middle"><span class="cattitle">{SAVEBOX}</span></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	<td valign="middle"><span class="cattitle">{SAVEBOX} &nbsp;</span></td>
+	<td valign="middle">{TRASHBOX_IMG}</td>
+	<td valign="middle"><span class="cattitle">{TRASHBOX} &nbsp;</span></td>
+	<td valign="middle">{EXPORT_IMG}</td>
+	<td valign="middle"><span class="cattitle">{EXPORT} &nbsp;</span></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+	  <td width="100%" class="row2" colspan="2"><span class="genmed">{MESSAGE_TO}</span></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	  <td class="row2" width="100%" colspan="2">
+	  <span class="genmed">{MESSAGE_TO}</span>
+	  <span class="gensmall">{POSTER_TO_ONLINE_STATUS}</span>
+	  </td>
+#
+#-----[ FIND ]------------------------------------------
+#
+	  <td valign="top" colspan="3" class="row1"><span class="postbody">{MESSAGE}</span></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	  <td valign="top" colspan="3" class="row1"><span class="postbody">{MESSAGE}</span>
+	  <!-- BEGIN postrow -->
+	  {ATTACHMENTS}
+	  <!-- END postrow -->
+	  </td>
+#
+#-----[ FIND ]------------------------------------------
+#
+{PROFILE_IMG}
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{PROFILE_IMG}
+#
+#-----[ IN-LINE BEFORE, ADD ]------------------------------------------
+#
+{POSTER_FROM_ONLINE_STATUS_IMG}
+#
+#-----[ FIND ]------------------------------------------
+#
+		<input type="submit" name="save" value="{L_SAVE_MSG}" class="liteoption" />
+		&nbsp; 
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+		<!-- BEGIN switch_save_messages -->
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+		<!-- END switch_save_messages -->
+#
+#-----[ FIND ]------------------------------------------
+#
+		<input type="submit" name="delete" value="{L_DELETE_MSG}" class="liteoption" />
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+		<!-- BEGIN switch_attachments -->
+		&nbsp;
+		<input type="submit" name="pm_delete_attach" value="{L_DELETE_ATTACHMENTS}" class="liteoption" />
+		<!-- END switch_attachments -->
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/search_results_posts.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+# 
+{searchresults.POST_DATE}&nbsp; &nbsp;{L_SUBJECT}: <b><a href="{searchresults.U_POST}">{searchresults.POST_SUBJECT}</a></b></span></td>
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{searchresults.POST_DATE}&nbsp; &nbsp;{L_SUBJECT}: <b><a href="{searchresults.U_POST}">{searchresults.POST_SUBJECT}</a></b></span></td>
+#
+#-----[ IN-LINE REPLACE WITH ]------------------------------------------
+#
+{searchresults.POST_DATE}</span>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+# Add these lines on a new blank line after the preceding line(s) to find
+# 
+		<br /><img src="{searchresults.MINI_POST_IMG}" width="12" height="9" alt="" title="{L_SUBJECT}" border="0" /><span class="postdetails">{L_SUBJECT}: <b><a href="{searchresults.U_POST}" class="postdetails">{searchresults.POST_SUBJECT}</a></b>
+		<!-- BEGIN sub_title -->
+		&nbsp;&nbsp;{L_SUB_TITLE}: {searchresults.sub_title.SUB_TITLE}
+		<!-- END sub_title -->
+	</span></td>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/search_results_topics.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{L_AUTHOR}&nbsp;</th>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	<th class="thTop" nowrap="nowrap">&nbsp;{L_CREATE_DATE}&nbsp;</th>
+#
+#-----[ FIND ]------------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{searchresults.TOPIC_TYPE}
+#
+#-----[ IN-LINE FIND ]----------------------------------------
+#
+row2
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+{searchresults.HYPERCELL_CLASS}
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<br /><span class="gensmall">{searchresults.GOTO_PAGE}</span></td>
+#
+#-----[ IN-LINE FIND ]----------------------------------------
+#
+<br /><span class="gensmall">{searchresults.GOTO_PAGE}</span></td>
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+<span class="gensmall">
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+# Add these lines on a new blank line after the preceding line(s) to find
+#
+		<!-- BEGIN sub_title -->
+		<br />{searchresults.sub_title.SUB_TITLE}
+		<!-- END sub_title -->
+		<br />{searchresults.GOTO_PAGE}
+	</span></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{searchresults.TOPIC_AUTHOR}</span></td>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	<td class="row2" align="center" valign="middle"><span class="postdetails">{searchresults.FIRST_POST_TIME}</span></td>
+#
+#-----[ FIND ]------------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{searchresults.LAST_POST_TIME}
+#
+#-----[ IN-LINE FIND ]----------------------------------------
+#
+row2
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+{searchresults.HYPERCELL_CLASS}-right
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="catBottom" colspan="{%:1}"
+#
+#-----[ INCREMENT ]------------------------------------------
+#
+%:1 +1
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/simple_footer.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+</body>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+<div style="display:none" id="resizemod"></div>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/simple_header.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+</head>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+<link rel="stylesheet" type="text/css" href="./templates/{T_TEMPLATE_NAME}/rcs_stylesheet.css" media="all">
+
+<script language="javascript" src="templates/transparency.js" type="text/javascript"></script>
+<link rel="stylesheet" href="{BBC_BOX_SHEET}" type="text/css">
+<script language="javascript" src="templates/bbc_box/fade.js" type="text/javascript"></script>
+<!--[if lt IE 7.]>
+<script defer type="text/javascript" src="templates/pngfix.js"></script>
+<![endif]-->
+<script type="text/javascript" src="templates/rmwa_jslib.js"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+<!--
+
+var rmw_max_width = '{IMAGES_MAX_SIZE}';
+var rmw_border_1 = '1px solid {T_BODY_LINK}';
+var rmw_border_2 = '2px dotted {T_BODY_LINK}';
+var rmw_image_title = '{L_RMW_IMAGE_TITLE}';
+
+//-->
+//]]>
+</script>
+<script type="text/javascript" src="templates/rmw_jslib.js"></script>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/subSilver.cfg
+#
+#-----[ FIND ]------------------------------------------
+#
+$current_template_images = $current_template_path . "/images";
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : gradual shine -------------------------------------------------------
+//-- add
+$shine = 'class="gradualshine" onMouseover="slowhigh(this)" onMouseout="slowlow(this)"';
+//-- fin mod : gradual shine ---------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------
+#
+$images['icon_edit'] = "$current_template_images/{LANG}/icon_edit.gif";
+$images['icon_search'] = "$current_template_images/{LANG}/icon_search.gif";
+$images['icon_profile'] = "$current_template_images/{LANG}/icon_profile.gif";
+$images['icon_pm'] = "$current_template_images/{LANG}/icon_pm.gif";
+$images['icon_email'] = "$current_template_images/{LANG}/icon_email.gif";
+$images['icon_delpost'] = "$current_template_images/icon_delete.gif";
+$images['icon_ip'] = "$current_template_images/{LANG}/icon_ip.gif";
+$images['icon_www'] = "$current_template_images/{LANG}/icon_www.gif";
+$images['icon_icq'] = "$current_template_images/{LANG}/icon_icq_add.gif";
+$images['icon_aim'] = "$current_template_images/{LANG}/icon_aim.gif";
+$images['icon_yim'] = "$current_template_images/{LANG}/icon_yim.gif";
+$images['icon_msnm'] = "$current_template_images/{LANG}/icon_msnm.gif";
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+//-- mod : gradual shine -------------------------------------------------------
+//-- delete
+/*-MOD
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+MOD-*/
+//-- add
+$images['icon_quote'] = "$current_template_images/{LANG}/icon_quote.gif\" " . "$shine";
+$images['icon_edit'] = "$current_template_images/{LANG}/icon_edit.gif\" " . "$shine";
+$images['icon_search'] = "$current_template_images/{LANG}/icon_search.gif\" " . "$shine";
+$images['icon_profile'] = "$current_template_images/{LANG}/icon_profile.gif\" " . "$shine";
+$images['icon_pm'] = "$current_template_images/{LANG}/icon_pm.gif\" " . "$shine";
+$images['icon_email'] = "$current_template_images/{LANG}/icon_email.gif\" " . "$shine";
+$images['icon_delpost'] = "$current_template_images/icon_delete.gif\" " . "$shine";
+$images['icon_ip'] = "$current_template_images/{LANG}/icon_ip.gif\" " . "$shine";
+$images['icon_www'] = "$current_template_images/{LANG}/icon_www.gif\" " . "$shine";
+$images['icon_icq'] = "$current_template_images/{LANG}/icon_icq_add.gif\" " . "$shine";
+$images['icon_aim'] = "$current_template_images/{LANG}/icon_aim.gif\" " . "$shine";
+$images['icon_yim'] = "$current_template_images/{LANG}/icon_yim.gif\" " . "$shine";
+$images['icon_msnm'] = "$current_template_images/{LANG}/icon_msnm.gif\" " . "$shine";
+//-- fin mod : gradual shine ---------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------
+#
+$images['pm_quotemsg'] = "$current_template_images/{LANG}/icon_quote.gif";
+$images['pm_editmsg'] = "$current_template_images/{LANG}/icon_edit.gif";
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+//-- mod : gradual shine -------------------------------------------------------
+//-- delete
+/*-MOD
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+MOD-*/
+//-- add
+$images['pm_quotemsg'] = "$current_template_images/{LANG}/icon_quote.gif\" " . "$shine";
+$images['pm_editmsg'] = "$current_template_images/{LANG}/icon_edit.gif\" " . "$shine";
+//-- fin mod : gradual shine ---------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------
+#
+$images['topic_mod_lock'] = "$current_template_images/topic_lock.gif";
+$images['topic_mod_unlock'] = "$current_template_images/topic_unlock.gif";
+$images['topic_mod_split'] = "$current_template_images/topic_split.gif";
+$images['topic_mod_move'] = "$current_template_images/topic_move.gif";
+$images['topic_mod_delete'] = "$current_template_images/topic_delete.gif";
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+//-- mod : gradual shine -------------------------------------------------------
+//-- delete
+/*-MOD
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+MOD-*/
+//-- add
+$images['topic_mod_lock'] = "$current_template_images/topic_lock.gif\" " . "$shine";
+$images['topic_mod_unlock'] = "$current_template_images/topic_unlock.gif\" " . "$shine";
+$images['topic_mod_split'] = "$current_template_images/topic_split.gif\" " . "$shine";
+$images['topic_mod_move'] = "$current_template_images/topic_move.gif\" " . "$shine";
+$images['topic_mod_delete'] = "$current_template_images/topic_delete.gif\" " . "$shine";
+//-- fin mod : gradual shine ---------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------
+#
+?>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+//-- mod : trashbox ------------------------------------------------------------
+//-- add
+$images['pm_trashbox'] = $current_template_images . '/msg_trashbox.gif';
+//-- fin mod : trashbox --------------------------------------------------------
+
+//-- mod : export pms to xml ---------------------------------------------------
+//-- add
+$images['pm_export'] = $current_template_images . '/msg_export.gif';
+//-- fin mod : export pms to xml -----------------------------------------------
+
+//-- mod : modcp merge hack ----------------------------------------------------
+//-- add
+$images['topic_mod_merge'] = "$current_template_images/topic_merge.gif\" " . "$shine";
+//-- fin mod : modcp merge hack ------------------------------------------------
+
+//-- mod : keep unread flags ---------------------------------------------------
+//-- add
+$images['icon_keep_unread'] = "$current_template_images/icon_keep_unread.gif\" " . "$shine";
+//-- fin mod : keep unread flags -----------------------------------------------
+
+//-- mod : control panels ------------------------------------------------------
+//-- add
+$images['cmd_up_arrow'] = $current_template_images . '/bs_arrow_up.gif';
+$images['cmd_down_arrow'] = $current_template_images . '/bs_arrow_down.gif';
+$images['cmd_details'] = $current_template_images . '/bs_details.gif';
+
+$images['cmd_add'] = $current_template_images . '/{LANG}/bs_command_add.gif';
+$images['cmd_cancel'] = $current_template_images . '/{LANG}/bs_command_cancel.gif';
+$images['cmd_check'] = $current_template_images . '/{LANG}/bs_command_check.gif';
+$images['cmd_create'] = $current_template_images . '/{LANG}/bs_command_create.gif';
+$images['cmd_delete'] = $current_template_images . '/{LANG}/bs_command_delete.gif';
+$images['cmd_edit'] = $current_template_images . '/{LANG}/bs_command_edit.gif';
+$images['cmd_export'] = $current_template_images . '/{LANG}/bs_command_export.gif';
+$images['cmd_preview'] = $current_template_images . '/{LANG}/bs_command_preview.gif';
+$images['cmd_search'] = $current_template_images . '/{LANG}/bs_command_search.gif';
+$images['cmd_select'] = $current_template_images . '/{LANG}/bs_command_select.gif';
+$images['cmd_synchro'] = $current_template_images . '/{LANG}/bs_command_synchro.gif';
+$images['cmd_regen'] = $current_template_images . '/{LANG}/bs_command_regen.gif';
+$images['cmd_submit'] = $current_template_images . '/{LANG}/bs_command_submit.gif';
+//-- fin mod : control panels --------------------------------------------------
+
+//-- mod : simple subforums ----------------------------------------------------
+//-- add
+$images['icon_subforum'] = $current_template_images . '/icon_minipost.gif';
+$images['icon_subforum_new'] = $current_template_images . '/icon_minipost_new.gif';
+$images['tree_hcross'] = $current_template_images . '/tree_hcross.gif';
+//-- fin mod : simple subforums ------------------------------------------------
+
+//-- mod : locked subforums viewable -------------------------------------------
+//-- add
+$images['icon_subforum_locked'] = $current_template_images . '/folder_locked_small.gif';
+//-- fin mod : locked subforums viewable ---------------------------------------
+
+//-- mod : forumtitle as weblink -----------------------------------------------
+//-- add
+$images['forum_link'] = $current_template_images . '/folder_link.gif';
+$images['icon_minilink'] = $current_template_images . '/icon_minilink.gif';
+//-- fin mod : forumtitle as weblink -------------------------------------------
+
+//-- mod : toolbar -------------------------------------------------------------
+//-- add
+$images['tlbr_markall'] = $current_template_images . '/tlbr_markall.gif';
+$images['tlbr_new'] = $current_template_images . '/tlbr_new.gif';
+$images['tlbr_new_pm'] = $current_template_images . '/tlbr_pm_new.gif';
+$images['tlbr_no_new_pm'] = $current_template_images . '/tlbr_pm.gif';
+$images['tlbr_self'] = $current_template_images . '/tlbr_self.gif';
+$images['tlbr_un_watch'] = $current_template_images . '/tlbr_un_watch.gif';
+$images['tlbr_unanswered'] = $current_template_images . '/tlbr_unanswered.gif';
+$images['tlbr_viewonline'] = $current_template_images . '/tlbr_viewonline.gif';
+$images['tlbr_watch'] = $current_template_images . '/tlbr_watch.gif';
+//-- fin mod : toolbar ---------------------------------------------------------
+
+//-- mod : topics list ---------------------------------------------------------
+//-- add
+$images['folder_global_announce']		= $current_template_images . '/folder_announce.gif';
+$images['folder_global_announce_new']		= $current_template_images . '/folder_announce_new.gif';
+$images['folder_global_announce_own']	= $current_template_images . '/folder_announce_own.gif';
+$images['folder_global_announce_new_own']	= $current_template_images . '/folder_announce_new_own.gif';
+$images['folder_own']	= $current_template_images . '/folder_own.gif';
+$images['folder_new_own']	= $current_template_images . '/folder_new_own.gif';
+$images['folder_hot_own']	= $current_template_images . '/folder_hot_own.gif';
+$images['folder_hot_new_own']	= $current_template_images . '/folder_new_hot_own.gif';
+$images['folder_locked_own'] = $current_template_images . '/folder_lock_own.gif';
+$images['folder_locked_new_own'] = $current_template_images . '/folder_lock_new_own.gif';
+$images['folder_sticky_own'] = $current_template_images . '/folder_sticky_own.gif';
+$images['folder_sticky_new_own'] = $current_template_images . '/folder_sticky_new_own.gif';
+$images['folder_announce_own'] = $current_template_images . '/folder_announce_own.gif';
+$images['folder_announce_new_own'] = $current_template_images . '/folder_announce_new_own.gif';
+//-- fin mod : topics list -----------------------------------------------------
+
+//-- mod : quick post es -------------------------------------------------------
+//-- add
+$images['qp_button'] = $current_template_images . '/{LANG}/quick-post.gif';
+$images['qp_quote'] = $current_template_images . '/qp_quote.gif';
+//-- fin mod : quick post es ---------------------------------------------------
+
+//-- mod : skype ---------------------------------------------------------------
+//-- add
+$images['icon_skype'] = "$current_template_images/{LANG}/{LANG}/icon_skype.gif\" " . "$shine";
+//-- fin mod : skype -----------------------------------------------------------
+
+//-- mod : recycle bin hack ----------------------------------------------------
+//-- add
+$images['topic_mod_bin'] = "$current_template_images/topic_bin.gif\" " . "$shine";
+//-- fin mod : recycle bin hack ------------------------------------------------
+
+//-- mod : birthday ------------------------------------------------------------
+//-- add
+$images['bday_cake'] = $current_template_images . '/bday_cake.gif';
+$images['bday_mini_cake'] = $current_template_images . '/bday_mini_cake.gif';
+//-- fin mod : birthday --------------------------------------------------------
+
+//-- mod : online offline hidden -----------------------------------------------
+//-- add
+$images['icon_online'] = "$current_template_images/{LANG}/icon_online.gif\" " . "$shine";
+$images['icon_offline'] = "$current_template_images/{LANG}/icon_offline.gif\" " . "$shine";
+$images['icon_hidden'] = "$current_template_images/{LANG}/icon_hidden.gif\" " . "$shine";
+$images['icon_online_bull'] = $current_template_images . '/icon_online.gif';$images['icon_offline_bull'] = $current_template_images . '/icon_offline.gif';$images['icon_hidden_bull'] = $current_template_images . '/icon_hidden.gif';
+//-- fin mod : online offline hidden -------------------------------------------
+
+//-- mod : gender --------------------------------------------------------------
+//-- add
+$images['icon_minigender_male'] = $current_template_images . '/icon_minigender_male.gif'; 
+$images['icon_minigender_female'] = $current_template_images . '/icon_minigender_female.gif';
+//-- fin mod : gender ----------------------------------------------------------
+
+//-- mod : mini card -----------------------------------------------------------
+//-- add
+$images['icon_g_card'] = "$current_template_images/icon_gcard.gif\" " . "$shine";
+$images['icon_y_card'] = "$current_template_images/icon_ycard.gif\" " . "$shine";
+$images['icon_r_card'] = "$current_template_images/icon_rcard.gif\" " . "$shine";
+//-- fin mod : mini card -------------------------------------------------------
+
+//-- mod : inspired of categories hierarchy ------------------------------------
+//-- add
+$images['Topic_Poll'] = $current_template_images . '/topic_poll.gif';
+//-- fin mod : inspired of categories hierarchy --------------------------------
+
+//-- mod : topics enhanced -----------------------------------------------------
+//-- add
+//-- bottom tabs
+$images['bt_showhide'] = $current_template_images . '/tabs_showhide.gif';
+//-- minitime
+$images['icon_minitime'] = $current_template_images . '/icon_minitime.gif';
+//-- topics nav buttons
+$images['nav_top'] = "$current_template_images/nav_top.gif\" " . "$shine";
+$images['nav_bot'] = "$current_template_images/nav_bot.gif\" " . "$shine";
+$images['nav_next'] = "$current_template_images/nav_next.gif\" " . "$shine";
+$images['nav_next_post'] = "$current_template_images/nav_next_post.gif\" " . "$shine";
+$images['nav_prev'] = "$current_template_images/nav_prev.gif\" " . "$shine";
+$images['nav_prev_post'] = "$current_template_images/nav_prev_post.gif\" " . "$shine";
+//-- fin mod : topics enhanced -------------------------------------------------
+
+//-- mod : quick split ---------------------------------------------------------
+//-- add
+$images['QuSp_split'] = "$current_template_images/icon_split.gif\" " . "$shine";
+//-- fin mod : quick split -----------------------------------------------------
+
+//-- mod : bottom tabs ---------------------------------------------------------
+//-- add
+$images['bt_showhide'] = $current_template_images . '/tabs_showhide.gif';
+//-- fin mod : bottom tabs -----------------------------------------------------
+
+//-- mod : instant msg ---------------------------------------------------------
+//-- add
+$images['instant_msg'] = $current_template_images . '/instant_msg_mini.gif';
+//-- fin mod : instant msg -----------------------------------------------------
+
+//-- mod : admin userlist ------------------------------------------------------
+//-- add
+$images['Arrow_Down'] = $current_template_images . '/arrowdown.png';
+$images['Arrow_Right'] = $current_template_images . '/arrowright.png';
+//-- fin mod : admin userlist --------------------------------------------------
+
+//-- mod : vbulletin who is online ---------------------------------------------
+//-- add
+$images['img_up_arrow'] = $current_template_images . '/icon_sign_minus.gif';
+$images['img_down_arrow'] = $current_template_images . '/icon_sign_plus.gif';
+$images['whoisonline'] = $current_template_images . '/icon_whoisonline.png';$images['offline'] = $current_template_images . '/icon_offline.png';$images['statistics'] = $current_template_images . '/icon_statistics.png';//-- fin mod : vbulletin who is online -----------------------------------------
+
+//-- mod : minichat ------------------------------------------------------------
+//-- add
+$images['icon_go'] = $current_template_images . '/{LANG}/bs_command_submit.gif';
+$images['icon_smilies'] = $current_template_images . '/{LANG}/icon_smilies.gif';
+$images['icon_edit_shout'] = $current_template_images . '/{LANG}/icon_edit.gif';
+$images['icon_refresh'] = $current_template_images . '/{LANG}/bs_command_regen.gif';
+
+$images['icon_del_shout'] = $current_template_images . '/icon_delete.gif';
+$images['icon_censor'] = "$current_template_images/icon_censor.gif\" " . "$shine";
+//-- fin mod : minichat --------------------------------------------------------
+
+//-- mod : bump topic ----------------------------------------------------------
+//-- add
+$images['bump_topic'] = $current_template_images . '/{LANG}/bump_topic.gif';
+//-- fin mod : bump topic ------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/subSilver.css
+#
+#-----[ FIND ]------------------------------------------
+#
+.helpline { background-color: #DEE3E7; border-style: none; }
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+div#tooltipDiv {
+	padding: 3px;
+	border: solid 1px #808080;
+	display: none;
+	background: #FFF;
+	color: #2B3D2B;
+	font: 9px Verdana, Arial, Helvetica, sans-serif;
+	text-align: left;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+	filter: alpha(opacity=85);
+	-moz-opacity: .85;
+}
+a.topic-new, a.topic-new:visited {
+	color: #cc0000;
+}
+a.topic-new:hover, a.topic-new:active {
+	color: #006600;
+}
+.fieldset {
+	margin-bottom:6px;
+}
+.panel {
+	color:#000;
+	background-color:transparent;
+	padding:10px;
+	border:outset 2px;
+}
+.terms {
+	color:#000;
+	background-color:#fff;
+	height:200px;
+	padding:6px;
+	border:inset thin;
+	overflow:auto;
+	text-align:left;
+}
+.agree {
+	color:#000;
+	background-color:transparent;
+	padding:6px;
+	border:thin inset;
+}
+img, .forumline img {
+	border: 0;
+}
+.gradualshine {
+	filter:alpha(opacity=30);
+	-moz-opacity:0.3;
+}
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/theme_info.cfg
+#
+#-----[ FIND ]------------------------------------------
+#
+?>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+//-- mod : rank color system ---------------------------------------------------
+//-- add
+$subSilver[0]['rcs_admincolor'] = "CC0000";
+$subSilver[0]['rcs_modcolor'] = "006600";
+$subSilver[0]['rcs_usercolor'] = "006699";
+//-- fin mod : rank color system -----------------------------------------------
+
+//-- mod : bot indexing mod ----------------------------------------------------
+//-- add
+$subSilver[0]['rcs_botcolor'] = "000000";
+//-- fin mod : bot indexing mod ------------------------------------------------
+
+//-- mod : move forum logo settings to ... -------------------------------------
+//-- add
+$subSilver[0]['theme_logo'] = "templates/subSilver/images/logo_phpBB.gif";
+//-- fin mod : move forum logo settings to ... ---------------------------------
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/viewforum_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+<form method="post" action="{S_POST_DAYS_ACTION}">
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	<table width="100%" cellspacing="2" cellpadding="2" border="0">
+	<tr>
+		<td align="left" valign="middle" class="nav" width="100%"><span class="nav">
+		<a href="{U_INDEX}" class="nav">{L_INDEX}</a> -> <a href="{U_CAT}" class="nav">{CAT_NAME}</a> <!-- IF PARENT_FORUM --> -> <a class="nav" href="{U_VIEW_PARENT_FORUM}">{PARENT_FORUM_NAME}</a> <!-- ENDIF --> -> <a class="nav" href="{U_VIEW_FORUM}">{FORUM_NAME}</a>
+		</span></td>
+	</tr>
+	</table>
+	<!-- BEGIN catrow -->
+	<table width="100%" cellpadding="2" cellspacing="1" border="0" class="forumline">
+	<tr> 
+		<th colspan="2" class="thCornerL" height="25" nowrap="nowrap">&nbsp;{L_FORUM}&nbsp;</th>
+		<th width="70" class="thTop" nowrap="nowrap">&nbsp;{L_TOPICS}&nbsp;</th>
+		<th width="70" class="thTop" nowrap="nowrap">&nbsp;{L_POSTS}&nbsp;</th>
+		<th width="200" class="thCornerR" nowrap="nowrap">&nbsp;{L_LASTPOST}&nbsp;</th>
+	</tr>
+	<!-- BEGIN forumrow -->
+	<tr> 
+		<td class="row1" align="center" valign="middle" height="50">
+		<img src="{catrow.forumrow.FORUM_FOLDER_IMG}" alt="{catrow.forumrow.L_FORUM_FOLDER_ALT}" title="{catrow.forumrow.L_FORUM_FOLDER_ALT}" border="0" /></td>
+		<td class="{catrow.forumrow.HYPERCELL_CLASS}" width="100%" height="50"><table width="100%" cellpadding="2" cellspacing="0" border="0">
+		<tr>
+		<td><a href="{catrow.forumrow.U_VIEWFORUM}" class="forumlink">{catrow.forumrow.FORUM_ICON_IMG}</a></td>
+		<td width="100%" valign="middle">
+			<span {catrow.forumrow.FORUM_COLOR} class="forumlink"><a href="{catrow.forumrow.U_VIEWFORUM}" {catrow.forumrow.FORUM_COLOR} class="forumlink<!-- IF catrow.forumrow.UNREAD --> topic-new<!-- ENDIF -->">{catrow.forumrow.FORUM_NAME}</a><br /></span>
+			<span class="genmed">{catrow.forumrow.FORUM_DESC}<br /></span>
+			<span class="gensmall">{catrow.forumrow.L_MODERATOR} {catrow.forumrow.MODERATORS}</span>
+		</td>
+	</tr>
+	</table></td>
+	<!-- BEGIN switch_forum_link_off -->
+	<td class="row2" align="center" valign="middle" height="50"><span class="gensmall">{catrow.forumrow.TOPICS}</span></td>
+	<td class="row2" align="center" valign="middle" height="50"><span class="gensmall">{catrow.forumrow.POSTS}</span></td>
+	<td class="{catrow.forumrow.HYPERCELL_CLASS}-right" align="center" valign="middle" height="50" nowrap="nowrap"> <span class="gensmall">{catrow.forumrow.LAST_POST}</span></td>
+	<!-- END switch_forum_link_off -->
+	<!-- BEGIN switch_forum_link_on -->
+	<td class="row2" align="center" valign="middle" height="50" colspan="3"><span class="gensmall">{catrow.forumrow.FORUM_LINK_COUNT}</span></td>
+	<!-- END switch_forum_link_on -->
+	</tr>
+	<!-- END forumrow -->
+	</table>
+	<br />
+	<!-- END catrow -->
+
+	<!-- IF NUM_TOPICS || ! HAS_SUBFORUMS -->
+#
+#-----[ FIND ]------------------------------------------
+#
+><a class="maintitle" href="{U_VIEW_FORUM}">
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+><a class="maintitle" href="{U_VIEW_FORUM}">
+#
+#-----[ IN-LINE BEFORE, ADD ]------------------------------------------
+#
+ width="100%"
+#
+#-----[ FIND ]------------------------------------------
+#
+{MODERATORS}<br /><br />{LOGGED_IN_USER_LIST}
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{MODERATORS}<br /><br />{LOGGED_IN_USER_LIST}
+#
+#-----[ IN-LINE REPLACE WITH ]------------------------------------------
+#
+{MODERATORS}<br />
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<a href="{U_INDEX}" class="nav">{L_INDEX}</a>
+{U_MARK_READ}
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	  <!-- BEGIN toolbar -->
+	  <td align="right" valign="bottom" nowrap="nowrap"><span class="gensmall">{toolbar.S_TOOLBAR}</span></td>
+	  <!-- END toolbar -->
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<table
+<tr> 
+  <th colspan=
+  <th width=
+  <th width=
+  <th width=
+  <th align=
+</tr>
+<!-- BEGIN topicrow -->
+<tr> 
+  <td class=
+  <td class=
+	{topicrow.GOTO_PAGE}
+  <td class=
+  <td class=
+  <td class=
+  <td class=
+</tr>
+<!-- END topicrow -->
+<!-- BEGIN switch_no_topics -->
+<tr> 
+  <td class=
+</tr>
+<!-- END switch_no_topics -->
+<tr> 
+  <td class=
+	<input
+	</span>
+</tr>
+</table>
+
+<table
+<tr> 
+  <td align=
+  <td align=
+  <td align=
+  </td>
+</tr>
+<tr>
+  <td align=
+</tr>
+</table>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	{TOPICS_LIST_BOX}
+
+	<table width="100%" cellspacing="2" border="0" align="center" cellpadding="2">
+	<tr> 
+		<td align="left" valign="middle" width="100%"><a href="{U_POST_NEW_TOPIC}"><img src="{POST_IMG}" border="0" /></a></td>
+	</tr>
+	<tr>
+		<td colspan="2"><a href="{U_INDEX}" class="nav">{L_INDEX}</a> -> <a href="{U_CAT}" class="nav">{CAT_NAME}</a> <!-- IF PARENT_FORUM --> -> <a class="nav" href="{U_VIEW_PARENT_FORUM}">{PARENT_FORUM_NAME}</a><!-- ENDIF --> -> <a class="nav" href="{U_VIEW_FORUM}">{FORUM_NAME}</a></td>
+	</tr>
+  </table>
+#
+#-----[ FIND ]------------------------------------------
+#
+# This is a partial search: the full lines are longer
+#
+
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	  <td align="right" valign="middle" width="100%">{JUMPBOX}</td>
+	</tr>
+  </table>
+  <table width="100%" cellspacing="2" border="0" align="center" cellpadding="2">
+	<tr>
+	  <td align="left" valign="middle" width="100%"><span class="nav"><a href="{U_INDEX}" class="nav">{L_INDEX}</a> -> <a href="{U_CAT}" class="nav">{CAT_NAME}</a> <!-- IF PARENT_FORUM --> -> <a class="nav" href="{U_VIEW_PARENT_FORUM}">{PARENT_FORUM_NAME}</a><!-- ENDIF --> -> <a class="nav" href="{U_VIEW_FORUM}">{FORUM_NAME}</a></span></td>
+	</tr>
+  </table>
+#
+#-----[ FIND ]------------------------------------------
+#
+# This is a partial search: the full lines are longer
+#
+{S_TIMEZONE}
+</td>
+</tr>
+<tr>
+{PAGE_NUMBER}
+</tr>
+</table>
+</form>
+
+<table
+<tr> 
+{JUMPBOX}
+</tr>
+</table>
+
+<table
+<tr>
+<td
+<tr>
+{FOLDER_NEW_IMG}
+{L_NEW_POSTS}
+&nbsp;
+{FOLDER_IMG}
+{L_NO_NEW_POSTS}
+&nbsp;
+{FOLDER_ANNOUNCE_IMG}
+{L_ANNOUNCEMENT}
+</tr>
+<tr> 
+{FOLDER_HOT_NEW_IMG}
+{L_NEW_POSTS_HOT}
+&nbsp;
+{FOLDER_HOT_IMG}
+{L_NO_NEW_POSTS_HOT}
+&nbsp;
+{FOLDER_STICKY_IMG}
+{L_STICKY}</td>
+</tr>
+<tr>
+{FOLDER_LOCKED_NEW_IMG}
+{L_NEW_POSTS_LOCKED}
+&nbsp;
+{FOLDER_LOCKED_IMG}
+{L_NO_NEW_POSTS_LOCKED}
+</tr>
+</table></td>
+{S_AUTH_LIST}
+</tr>
+</table>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	</tr>
+  </table>
+</form>
+<br class="nav" />
+<div id="info_display" style="display:none;">
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="cattitle">{L_BT_TITLE}</span></td>
+  </tr>
+  <tr>
+	<td class="row2 gensmall" width="150" nowrap="nowrap">{PAGE_NUMBER}</td>
+	<td class="row1 gensmall" width="100%">{PAGINATION}</td>
+  </tr>
+  <tr>
+	<td class="row2 gensmall" colspan="2"><b>{LOGGED_IN_USER_LIST}</b></td>
+  </tr>
+  <tr>
+	<td class="row2 gensmall" width="150" nowrap="nowrap"><b>{L_MODERATOR}:</b></td>
+	<td class="row1 gensmall" width="100%">{MODERATORS}</td>
+  </tr>
+  <tr>
+	<td class="row2 gensmall" width="150" nowrap="nowrap" valign="top"><b>{L_BT_PERMS}:</b></td>
+	<td class="row1 gensmall" width="100%">{S_AUTH_LIST}</td>
+  </tr>
+  <tr>
+	<td class="row2 gensmall" width="150" nowrap="nowrap" valign="top"><b>{L_BT_ICONS}:</b></td>
+	<td class="row1 gensmall" width="100%"><table cellspacing="3" cellpadding="0" border="0">
+	  <tr>
+		<td align="left"><img src="{FOLDER_NEW_IMG}" alt="{L_NEW_POSTS}" width="19" height="18" /></td>
+		<td class="gensmall">{L_NEW_POSTS}</td>
+		<td>&nbsp;&nbsp;</td>
+		<td align="left"><img src="{FOLDER_IMG}" alt="{L_NO_NEW_POSTS}" width="19" height="18" /></td>
+		<td class="gensmall">{L_NO_NEW_POSTS}</td>
+		<td>&nbsp;&nbsp;</td>
+		<td align="left"><img src="{FOLDER_ANNOUNCE_IMG}" alt="{L_ANNOUNCEMENT}" width="19" height="18" /></td>
+		<td class="gensmall">{L_ANNOUNCEMENT}</td>
+	  </tr>
+	  <tr> 
+		<td align="left"><img src="{FOLDER_HOT_NEW_IMG}" alt="{L_NEW_POSTS_HOT}" width="19" height="18" /></td>
+		<td class="gensmall">{L_NEW_POSTS_HOT}</td>
+		<td>&nbsp;&nbsp;</td>
+		<td align="left"><img src="{FOLDER_HOT_IMG}" alt="{L_NO_NEW_POSTS_HOT}" width="19" height="18" /></td>
+		<td class="gensmall">{L_NO_NEW_POSTS_HOT}</td>
+		<td>&nbsp;&nbsp;</td>
+		<td align="left"><img src="{FOLDER_STICKY_IMG}" alt="{L_STICKY}" width="19" height="18" /></td>
+		<td class="gensmall">{L_STICKY}</td>
+	  </tr>
+	  <tr>
+		<td align="left"><img src="{FOLDER_LOCKED_NEW_IMG}" alt="{L_NEW_POSTS_LOCKED}" width="19" height="18" /></td>
+		<td class="gensmall">{L_NEW_POSTS_LOCKED}</td>
+		<td>&nbsp;&nbsp;</td>
+		<td align="left"><img src="{FOLDER_LOCKED_IMG}" alt="{L_NO_NEW_POSTS_LOCKED}" width="19" height="18" /></td>
+		<td class="gensmall">{L_NO_NEW_POSTS_LOCKED}</td>
+	  </tr>
+	</table></td>
+  </tr>
+</table>
+</div>
+
+<div id="info_close" style="display:visible;">
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="cattitle">{L_BT_TITLE}</span></td>
+  </tr>
+  <tr>
+	<td class="row2 gensmall" width="150" nowrap="nowrap">{PAGE_NUMBER}</td>
+	<td class="row1 gensmall" width="100%">{PAGINATION}</td>
+  </tr>
+  <tr>
+	<td class="row2 gensmall" colspan="2"><b>{LOGGED_IN_USER_LIST}</b></td>
+  </tr>
+  <tr>
+	<td class="row2 gensmall" width="150" nowrap="nowrap" valign="top"><b>{L_BT_ICONS}:</b></td>
+	<td class="row1 gensmall" width="100%"><table cellspacing="3" cellpadding="0" border="0">
+	  <tr>
+		<td align="left"><img src="{FOLDER_NEW_IMG}" alt="{L_NEW_POSTS}" width="19" height="18" /></td>
+		<td class="gensmall">{L_NEW_POSTS}</td>
+		<td>&nbsp;&nbsp;</td>
+		<td align="left"><img src="{FOLDER_IMG}" alt="{L_NO_NEW_POSTS}" width="19" height="18" /></td>
+		<td class="gensmall">{L_NO_NEW_POSTS}</td>
+	  </tr>
+	</table></td>
+  </tr>
+</table>
+</div>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+	<td align="right" valign="top"><span class="gensmall">
+		<a href="javascript:dom_toggle.toggle('info_display','info_close');"><img alt="{L_BT_SHOWHIDE_ALT}" src="{I_BT_SHOWHIDE}" title="{L_BT_SHOWHIDE_ALT}" width="22" height="12" border="0" /></a>
+	</span></td>
+  </tr>
+</table>
+
+<br class="nav" />
+<table width="100%" cellspacing="2" cellpadding="0" border="0">
+  <tr> 
+	<td align="right" valign="top">{JUMPBOX}</td>
+  </tr>
+</table>
+
+<!-- ELSE -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+	<td align="right">{JUMPBOX}</td>
+  </tr>
+</table>
+<!-- ENDIF -->
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/viewonline_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<!-- BEGIN reg_user_row -->
+<tr> 
+<td width="35%" class="{reg_user_row.ROW_CLASS}">
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+  <!-- BEGIN reg_user_row -->
+  <tr> 
+	<td width="35%" class="{reg_user_row.ROW_CLASS}">&nbsp;<span class="gen"><img width="18" height="12" border="0" src="images/flags/{reg_user_row.FLAG}.png" alt="{reg_user_row.COUNTRY}" title="{reg_user_row.COUNTRY}" />&nbsp;<a href="{reg_user_row.U_USER_PROFILE}"{reg_user_row.STYLE} title="{reg_user_row.L_VIEWPROFILE}">{reg_user_row.USERNAME}</a></span>&nbsp;</td>
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<!-- BEGIN guest_user_row -->
+<tr> 
+<td width="35%" class="{guest_user_row.ROW_CLASS}">
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+  <!-- BEGIN guest_user_row -->
+  <tr> 
+	<td width="35%" class="{guest_user_row.ROW_CLASS}">&nbsp;<span class="gen"><img width="18" height="12" border="0" src="images/flags/{guest_user_row.FLAG}.png" alt="{guest_user_row.COUNTRY}" title="{guest_user_row.COUNTRY}" />&nbsp;{guest_user_row.USERNAME}</span>&nbsp;</td>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/viewtopic_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+<table width="100%" cellspacing="2" cellpadding="2" border="0">
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+  <tr>
+	<td class="nav" align="left" valign="middle" width="100%">
+		<a class="nav" href="{U_INDEX}">{L_INDEX}</a> -> <a href="{U_CAT}" class="nav">{CAT_NAME}</a> <!-- IF PARENT_FORUM --> -> <a class="nav" href="{U_VIEW_PARENT_FORUM}">{PARENT_FORUM_NAME}</a><!-- ENDIF --> -> <a class="nav" href="{U_VIEW_FORUM}">{FORUM_NAME}</a>
+	</td>
+  </tr>
+#
+#-----[ FIND ]------------------------------------------
+#
+<span class="gensmall"><b>{PAGINATION}</b><br />
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	  <span class="gensmall"><b>{PAGINATION}</b>
+#
+#-----[ FIND ]------------------------------------------
+#
+<table width="100%" cellspacing="2" cellpadding="2" border="0">
+  <tr> 
+	<td align="left" valign="bottom" nowrap="nowrap"><span class="nav"><a href="{U_POST_NEW_TOPIC}"><img src="{POST_IMG}" border="0" alt="{L_POST_NEW_TOPIC}" align="middle" /></a>&nbsp;&nbsp;&nbsp;<a href="{U_POST_REPLY_TOPIC}"><img src="{REPLY_IMG}" border="0" alt="{L_POST_REPLY_TOPIC}" align="middle" /></a></span></td>
+	<td align="left" valign="middle" width="100%"><span class="nav">&nbsp;&nbsp;&nbsp;<a href="{U_INDEX}" class="nav">{L_INDEX}</a> 
+	  -> <a href="{U_VIEW_FORUM}" class="nav">{FORUM_NAME}</a></span></td>
+  </tr>
+</table>
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<tr align="right">
+		<td class="catHead" colspan="2" height="28"><span class="nav"><a href="{U_VIEW_OLDER_TOPIC}" class="nav">{L_VIEW_PREVIOUS_TOPIC}</a> :: <a href="{U_VIEW_NEWER_TOPIC}" class="nav">{L_VIEW_NEXT_TOPIC}</a> &nbsp;</span></td>
+	</tr>
+	{POLL_DISPLAY} 
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+<table width="100%" cellspacing="2" cellpadding="2" border="0">
+	<tr>
+	{POLL_DISPLAY}
+	</tr>
+</table>
+
+<table width="100%" cellspacing="2" cellpadding="2" border="0">
+  <tr>
+	<td class="nav" align="left" valign="bottom" nowrap="nowrap">
+		<a class="nav" href="{U_POST_NEW_TOPIC}"><img src="{POST_IMG}" border="0" alt="{L_POST_NEW_TOPIC}" align="middle" /></a>
+		<a class="nav" href="{U_POST_REPLY_TOPIC}"><img src="{REPLY_IMG}" border="0" alt="{L_POST_REPLY_TOPIC}" align="middle" /></a>
+		<!-- BEGIN bump_topic -->
+		<a class="nav" href="{bump_topic.U_BUMP_TOPIC}"><img src="{bump_topic.I_BUMP_TOPIC}" border="0" alt="{bump_topic.L_BUMP_TOPIC}" align="middle" /></a>
+		<!-- END bump_topic -->
+	</td>
+	<!-- BEGIN toolbar -->
+	<td align="right" valign="bottom" nowrap="nowrap"><span class="gensmall">{toolbar.S_TOOLBAR}</span></td>
+	<!-- END toolbar -->
+  </tr>
+</table>
+
+<!-- BEGIN postrow -->
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+#
+#-----[ FIND ]------------------------------------------
+#
+<th class="thRight" nowrap="nowrap">{L_MESSAGE}</th>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+		<span class="name"><a name="{postrow.S_NUM_ROW}" id="{postrow.S_NUM_ROW}"></a></span>
+#
+#-----[ FIND ]------------------------------------------
+#
+</tr>
+<!-- BEGIN postrow -->
+<tr> 
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	</tr>
+	<tr> 
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<td width="150" align="left" valign="top" class="{postrow.ROW_CLASS}">
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+		<td class="{postrow.ROW_CLASS}" width="150" align="middle" valign="top">
+			<span class="nav">{postrow.S_NAV_BUTTONS}</span>
+			<hr size="1" />
+			<b class="name"><a name="{postrow.U_POST_ID}"></a>{postrow.POSTER_NAME}</b>{postrow.I_QP_QUOTE}<br />
+			<span class="postdetails"><br />{postrow.POSTER_RANK}<br /><br />{postrow.RANK_IMAGE}<br />{postrow.POSTER_AVATAR}<br />{postrow.WARN_CARDS}<br /><br />{postrow.POSTER_JOINED}<br />{postrow.POSTER_POSTS}<br />{postrow.POINTS}{postrow.DONATE_POINTS}<br /></span>
+		</td>
+#
+#-----[ FIND ]------------------------------------------
+#
+<a href="{postrow.U_MINI_POST}"><img src="{postrow.I_MINITIME}" width="12" height="9" alt="" title="{L_POSTED}" /></a>
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+<a href="{postrow.U_MINI_POST}"><img src="{postrow.I_MINITIME}" width="12" height="9" alt="" title="{L_POSTED}" /></a>
+#
+#-----[ IN-LINE REPLACE WITH ]------------------------------------------
+#
+<img src="{postrow.I_MINITIME}" width="12" height="9" alt="" title="{L_POSTED}" />
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{postrow.POST_DATE}<span class="gen">&nbsp;</span>&nbsp; &nbsp;{L_POST_SUBJECT}: {postrow.POST_SUBJECT}</span></td>
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{postrow.POST_DATE}<span class="gen">&nbsp;</span>&nbsp; &nbsp;{L_POST_SUBJECT}: {postrow.POST_SUBJECT}</span></td>
+#
+#-----[ IN-LINE REPLACE WITH ]------------------------------------------
+#
+{postrow.POST_DATE}
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+					<br /><a href="{postrow.U_MINI_POST}"><img src="{postrow.MINI_POST_IMG}" width="12" height="9" alt="" title="{L_POST_SUBJECT}" border="0" /></a>{L_POST_SUBJECT}: {postrow.POST_SUBJECT}
+					<!-- BEGIN sub_title -->
+					<br /><img src="{postrow.MINI_POST_IMG}" width="12" height="9" alt="" title="{L_SUB_TITLE}" border="0" />{L_SUB_TITLE}: {postrow.sub_title.SUB_TITLE}
+					<!-- END sub_title -->
+				</span></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+{postrow.DELETE_IMG}
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{postrow.DELETE_IMG}
+#
+#-----[ IN-LINE AFTER, ADD ]------------------------------------------
+#
+ {postrow.KEEP_UNREAD_IMG} {postrow.SPLIT_IMG}
+#
+#-----[ FIND ]------------------------------------------
+#
+{postrow.IP_IMG}
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{postrow.IP_IMG}
+#
+#-----[ IN-LINE AFTER, ADD ]------------------------------------------
+#
+ {postrow.WARN_YELLOW_CARD} {postrow.WARN_RED_CARD} {postrow.WARN_GREEN_CARD}
+#
+#-----[ FIND ]------------------------------------------
+#
+<td colspan="2"><span class="postbody">{postrow.MESSAGE}{postrow.SIGNATURE}</span><span class="gensmall">{postrow.EDITED_MESSAGE}</span></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+				<td colspan="2"><div id="message_{postrow.U_POST_ID}"><span class="postbody">{postrow.MESSAGE}</span></div>{postrow.ATTACHMENTS}<div align="right"><span class="gensmall"><font color="#999999"><i>{postrow.EDITED_MESSAGE}{postrow.BUMPED_MESSAGE}</i></font></span><span class="postbody">{postrow.SIGNATURE}</span></div></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+	<tr> 
+		<td class="{postrow.ROW_CLASS}" width="150" align="left" valign="middle"><span class="nav"><a href="#top" class="nav">{L_BACK_TO_TOP}</a></span></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	<tr> 
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="{postrow.ROW_CLASS}" width="100%" height="28" valign="bottom" nowrap="nowrap">
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+nowrap="nowrap"
+#
+#-----[ IN-LINE REPLACE WITH ]------------------------------------------
+#
+colspan="2"
+#
+#-----[ FIND ]------------------------------------------
+#
+{postrow.PROFILE_IMG}
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{postrow.PROFILE_IMG}
+#
+#-----[ IN-LINE BEFORE, ADD ]------------------------------------------
+#
+{postrow.POSTER_ONLINE_STATUS_IMG}
+#
+#-----[ FIND ]------------------------------------------
+#
+{postrow.MSN_IMG}
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+{postrow.MSN_IMG}
+#
+#-----[ IN-LINE AFTER, ADD ]------------------------------------------
+#
+ {postrow.SKYPE_IMG}
+#
+#-----[ FIND ]------------------------------------------
+#
+<!-- END postrow -->
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+	<!-- BEGIN spacing -->
+	</table>
+	<br class="nav" />
+	<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+	<!-- END spacing -->
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+# 
+{U_POST_REPLY_TOPIC}
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+# at the end of the line
+# 
+</a></span></td>
+#
+#-----[ IN-LINE REPLACE WITH ]------------------------------------------
+#
+</a>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+		<!-- BEGIN bump_topic -->
+		&nbsp;&nbsp;<a class="nav" href="{bump_topic.U_BUMP_TOPIC}"><img src="{bump_topic.I_BUMP_TOPIC}" border="0" alt="{bump_topic.L_BUMP_TOPIC}" align="middle" /></a>
+		<!-- END bump_topic -->
+		<!-- BEGIN qp_form -->
+		<!-- BEGIN qp_button -->
+		&nbsp;&nbsp;<a href="{qp_form.qp_button.U_QPES}"><img src="{qp_form.qp_button.I_QPES}" border="0" alt="{qp_form.qp_button.L_QPES_ALT}" align="middle" /></a>
+		<!-- END qp_button -->
+		<!-- END qp_form -->
+	</span></td>
+	<td align="right" class="nav" nowrap="nowrap">{SELECT_TITLE}</td>
+#
+#-----[ FIND ]------------------------------------------
+#
+	</span></td>
+	<td align="left" valign="middle" width="100%"><span class="nav">&nbsp;&nbsp;&nbsp;<a href="{U_INDEX}" class="nav">{L_INDEX}</a> 
+	  -> <a href="{U_VIEW_FORUM}" class="nav">{FORUM_NAME}</a></span></td>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	</span></td>
+#
+#-----[ FIND ]------------------------------------------
+#
+# This is a partial search: the full lines are longer
+# 
+{S_TIMEZONE}
+</td>
+</tr>
+<tr>
+{PAGE_NUMBER}
+</tr>
+</table>
+
+<table
+<tr> 
+{S_WATCH_TOPIC}
+&nbsp;<br />
+{S_TOPIC_ADMIN}
+{S_AUTH_LIST}
+</tr>
+</table>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+  </tr>
+</table>
+<table width="100%" cellspacing="2" cellpadding="2" border="0" align="center">
+  <tr> 
+	<td align="left" valign="middle" width="100%"><span class="nav"><a href="{U_INDEX}" class="nav">{L_INDEX}</a> 
+	  -> <a href="{U_CAT}" class="nav">{CAT_NAME}</a> <!-- IF PARENT_FORUM --> -> <a class="nav" href="{U_VIEW_PARENT_FORUM}">{PARENT_FORUM_NAME}</a><!-- ENDIF -->
+	  -> <a href="{U_VIEW_FORUM}" class="nav">{FORUM_NAME}</a></span></td>
+  </tr>
+</table>
+
+<!-- BEGIN qp_form -->
+<br class="nav" />
+{QP_BOX}
+<!-- END qp_form -->
+
+<table class="forumline" width="100%" cellspacing="1" cellpadding="3" border="0">
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="cattitle" valign="top"><b>{L_BT_TITLE}</b></span></td>
+  </tr>
+  <tr>
+	<td class="row2 gensmall" width="150" nowrap="nowrap">{PAGE_NUMBER}</td>
+	<td class="row1 gensmall" width="100%">{PAGINATION}</td>
+  </tr>
+  <!-- BEGIN switch_user_logged_in -->
+  <tr>
+	<td class="row2 gensmall" colspan="2">{S_WATCH_TOPIC}</td>
+  </tr>
+  <!-- END switch_user_logged_in -->
+  <tbody id="info_display" style="display:none;">
+	<tr>
+		<td class="row2 gensmall" valign="top" width="150" nowrap="nowrap" valign="top"><b>{L_BT_PERMS}:</b></td>
+		<td class="row1 gensmall" width="100%">{S_AUTH_LIST}</td>
+	</tr>
+  </tbody>
+</table>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+	<td width="100%" align="left" valign="top" nowrap="nowrap">
+	<br class="nav" />
+	{S_TOPIC_ADMIN}
+	</td>
+	<td align="right" valign="top"><span class="gensmall">
+		<a href="javascript:dom_toggle.toggle('info_display','info_close');"><img alt="{L_BT_SHOWHIDE_ALT}" src="{I_BT_SHOWHIDE}" title="{L_BT_SHOWHIDE_ALT}" width="22" height="12" border="0" /></a>
+	</span></td>
+  </tr>
+  <tr>
+	<td colspan="2" valign="middle" align="right">{JUMPBOX}</td>
+  </tr>
+</table>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/admin/forum_admin_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<td class="row2"><span class="gen"><a href="{catrow.forumrow.U_VIEWFORUM}"
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+	  <td class="row2">
+			<!-- BEGIN tree_cross -->
+			<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
+			<td><img src="{catrow.forumrow.tree_cross.FORUM_TREE_IMG}" border="0" alt="" title="" /></td></td><td><span class="gen">&nbsp;</span></td><td valign="middle" width="100%">
+			<!-- END tree_cross -->
+				<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
+				<td>{catrow.forumrow.FORUM_ICON_IMG}</td>
+				<td width="100%">
+					<span {catrow.forumrow.FORUM_COLOR} class="gen">&nbsp;&nbsp;<a href="{catrow.forumrow.U_VIEWFORUM}" target="_new" {catrow.forumrow.FORUM_COLOR}>{catrow.forumrow.FORUM_NAME}</a></span><br />
+					<span class="gensmall">&nbsp;&nbsp;{catrow.forumrow.FORUM_DESC}</span>
+				</td>
+				</tr></table>
+			<!-- BEGIN tree_cross -->
+			</td></tr></table>
+			<!-- END tree_cross -->
+	  </td>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/admin/forum_edit_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+<h1>{L_FORUM_TITLE}</h1>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+<script type="text/javascript" src="./../templates/picker/picker.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+<!--
+var cp = new ColorPicker();
+//-->
+//]]>
+</script>
+
+<script language="javascript" type="text/javascript">
+<!--
+function update_forum_icon(newimage)
+{
+	document.forum_icon.src = "{ICON_BASEDIR}/" + newimage;
+}
+//-->
+</script>
+#
+#-----[ FIND ]------------------------------------------
+#
+	  <td class="row2"><select name="forumstatus">{S_STATUS_LIST}</select></td>
+	</tr>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	<tr>
+		<td class="row1">{L_SUBTEMPLATE}</td>
+		<td class="row2">{FORUM_TEMPLATE}</td>
+	</tr>
+	<tr> 
+	  <td class="row1">{L_POINTS_DISABLED}</td>
+	  <td class="row2"><select name="points_disabled">{S_POINTS_LIST}</select></td>
+	</tr>
+	<tr> 
+		<td class="row1">{L_DISABLE_WORD_CENSOR}</td>
+		<td class="row2">
+		<input type="radio" name="disable_word_censor" value="1" class="post" {DISABLE_WORD_CENSOR_YES} />&nbsp;{L_YES}&nbsp;
+		<input type="radio" name="disable_word_censor" value="0" class="post" {DISABLE_WORD_CENSOR_NO} />&nbsp;{L_NO}</td>
+	</tr>
+	<tr> 
+	  <td class="row1">{L_PASSWORD}</td>
+	  <td class="row2"><input class="post" type="text" name="password" value="{FORUM_PASSWORD}" size="30" maxlength="20" /></td>
+	</tr>
+	<tr>
+	  <td class="row1">{L_QP_TITLE}</td>
+	  <td class="row2">
+	  	<input type="radio" name="forum_qpes" value="1" {FORUM_QP_YES} /> {L_YES}&nbsp;
+	  	<input type="radio" name="forum_qpes" value="0" {FORUM_QP_NO} /> {L_NO}
+	  </td>
+	</tr>
+	<tr>
+	  <td class="row1">{L_FORUM_AS_CATEGORY}</td>
+	  <td class="row2">
+	  	<input type="radio" name="forum_as_category" value="1" {FORUM_AS_CATEGORY_YES} /> {L_YES}&nbsp;
+	  	<input type="radio" name="forum_as_category" value="0" {FORUM_AS_CATEGORY_NO} /> {L_NO}
+	  </td>
+	</tr>
+	<tr> 
+	  <td class="row1">{L_FORUM_ICON}</td>
+	  <td class="row2"><select name="forumicon" onchange="update_forum_icon(this.options[selectedIndex].value);">{ICON_LIST}</select> &nbsp; <img name="forum_icon" src="{ICON_IMG}" border="0" alt="" /> &nbsp;</td>
+	</tr>
+	<tr>
+	  <td class="row1">{L_FORUM_COLOR}<br /><span class="gensmall">{L_FORUM_COLOR_EXPLAIN}</span></td>
+		<td class="row2">
+			<input type="text" id="forum_color" size="10" maxlength="6" name="forum_color" value="{FORUM_COLOR}" class="post" onchange="previewColor('preview_forum_color', this.value);" />
+			<input class="cp_preview" type="text" readonly="readonly" size="1" id="preview_forum_color" title="{L_PICK_COLOR}" onclick="showColorPicker(this, document.forms[0].forum_color, 'preview_forum_color'); return false;" />
+		</td>
+	</tr>
+	<tr>
+	  <td class="row1">{L_FORUM_IS_LINK}</td>
+	  <td class="row2"><input class="post" type="checkbox" name="forum_is_link" value="1" {FORUM_IS_LINK} /></td>
+	</tr>
+	<tr>
+	  <td class="row1">{L_FORUM_LINK_TARGET}</td>
+	  <td class="row2"><input class="post" type="checkbox" name="forum_link_target" value="1" {FORUM_LINK_TARGET} /></td>
+	</tr>
+	<tr>
+	  <td class="row1">{L_FORUM_WEBLINK}</td>
+	  <td class="row2"><input class="post" type="text" size="25" maxlength="200" name="forum_weblink" value="{FORUM_WEBLINK}" /></td>
+	</tr>
+#
+#-----[ FIND ]------------------------------------------
+#
+	  </table></td>
+	</tr>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	<tr>
+		<td class="row1">{L_FORUM_DISPLAY_SORT}</td>
+		<td class="row2">
+		<select name="forum_display_sort">{S_FORUM_DISPLAY_SORT_LIST}</select>&nbsp;
+		<select name="forum_display_order">{S_FORUM_DISPLAY_ORDER_LIST}</select>&nbsp;
+		</td>
+	</tr>
+#
+#-----[ FIND ]------------------------------------------
+#
+</form>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+<script type="text/javascript">
+//<![CDATA[
+<!--//
+previewColor('preview_forum_color', document.getElementById('forum_color').value);
+//-->
+//]]>
+</script>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/admin/group_edit_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+		<input class="post" type="text" name="group_name" size="35" maxlength="40" value="{GROUP_NAME}" />
+	  </td>
+	</tr>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	<tr>
+	  <td class="row1" width="38%"><span class="gen">{L_RCS_SELECT_RANK}:</span></td>
+	  <td class="row2">{LIST_BOX}</td>
+	</tr>
+#
+#-----[ FIND ]------------------------------------------
+#
+		{L_GROUP_DELETE_CHECK}</td>
+	</tr>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	<tr>
+		<td class="row1"><span class="gen">{L_UPLOAD_QUOTA}</span></td>
+		<td class="row2">{S_SELECT_UPLOAD_QUOTA}</td>
+	</tr>
+	<tr>
+		<td class="row1"><span class="gen">{L_PM_QUOTA}</span></td>
+		<td class="row2">{S_SELECT_PM_QUOTA}</td>
+	</tr>
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/admin/index_body.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+{reg_user_row.U_USER_PROFILE}" class="gen">{reg_user_row.USERNAME}
+#
+#-----[ IN-LINE FIND ]----------------------------------------
+#
+{reg_user_row.U_USER_PROFILE}" class="gen"
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+{reg_user_row.U_USER_PROFILE}"{reg_user_row.STYLE}
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/admin/index_navigate.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<table
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+<script language="javascript" type="text/javascript">
+<!--
+
+var menuVersion = "Slide Menu v1.0.0";
+
+/*************************************************************
+ *	DHTML Slide Menu for ACP MOD
+ *
+ *	Copyright (C) 2004, Markus (phpMiX)
+ *	This script is released under GPL License.
+ *	Feel free to use this script (or part of it) wherever you need
+ *	it ...but please, give credit to original author. Thank you. :-)
+ *	We will also appreciate any links you could give us.
+ *
+ *	Enjoy! ;-)
+ *************************************************************/
+
+menuVersion += ' &copy; 2004<br />by <a href="http://www.phpmix.com/" target="_blank" class="copyright">phpMiX</a>';
+
+function getCookie(name)
+{
+	var cookies = document.cookie;
+	var start = cookies.indexOf(name + '=');
+	if( start < 0 ) return null;
+	var len = start + name.length + 1;
+	var end = cookies.indexOf(';', len);
+	if( end < 0 ) end = cookies.length;
+	return unescape(cookies.substring(len, end));
+}
+function setCookie(name, value, expires, path, domain, secure)
+{
+	document.cookie = name + '=' + escape (value) +
+		((expires) ? '; expires=' + ( (expires == 'never') ? 'Thu, 31-Dec-2099 23:59:59 GMT' : expires.toGMTString() ) : '') +
+		((path)    ? '; path='    + path    : '') +
+		((domain)  ? '; domain='  + domain  : '') +
+		((secure)  ? '; secure' : '');
+}
+function delCookie(name, path, domain)
+{
+	if( getCookie(name) )
+	{
+		document.cookie = name + '=;expires=Thu, 01-Jan-1970 00:00:01 GMT' +
+			((path)    ? '; path='    + path    : '') +
+			((domain)  ? '; domain='  + domain  : '');
+	}
+}
+
+function menuCat(id, rows)
+{
+	this.cat_id = id;
+	this.cat_rows = rows;
+	this.status = 'block';
+}
+var menuCats = new Array();
+<!-- BEGIN catrow -->
+menuCats['menuCat_{catrow.MENU_CAT_ID}'] = new menuCat('{catrow.MENU_CAT_ID}', {catrow.MENU_CAT_ROWS});
+<!-- END catrow -->
+
+function getObj(obj)
+{
+	return ( document.getElementById ? document.getElementById(obj) : ( document.all ? document.all[obj] : null ) );
+}
+function displayObj(obj, status)
+{
+	var x = getObj(obj);
+	if( x && x.style ) x.style.display = status;
+}
+
+var queueInterval = 20;		// milliseconds between queued steps.
+var execInterval = 0;
+var queuedSteps;
+var currentStep;
+
+function queueStep(o, s)
+{
+	this.obj = o;
+	this.status = s;
+}
+function execQueue()
+{
+	if( currentStep < queuedSteps.length )
+	{
+		var obj = queuedSteps[currentStep].obj;
+		var status = queuedSteps[currentStep].status;
+		displayObj(obj, status);
+		if( menuCats[obj] ) menuCats[obj].status = status;
+		currentStep++;
+		setTimeout("execQueue();", execInterval);
+	}
+	else
+	{
+		execInterval = queueInterval;
+	}
+}
+function onMenuCatClick(cat_id)
+{
+	var currentCat, currentStatus;
+
+	currentCat = 'menuCat_'+cat_id;
+	currentStatus = menuCats[currentCat].status;
+
+	queuedSteps = new Array();
+	currentStep = 0;
+
+	for( var catName in menuCats )
+	{
+		if( menuCats[catName].status == 'none' ) continue;
+
+		for( var i=(menuCats[catName].cat_rows-1); i >= 0; i-- )
+		{
+			queuedSteps[currentStep++] = new queueStep(catName+'_'+i, 'none');
+		}
+		queuedSteps[currentStep++] = new queueStep(catName, 'none');
+	}
+
+	if( currentStatus == 'none' )
+	{
+		queuedSteps[currentStep++] = new queueStep(currentCat, 'block');
+		for( var i=0; i < menuCats[currentCat].cat_rows; i++ )
+		{
+			queuedSteps[currentStep++] = new queueStep(currentCat+'_'+i, 'block');
+		}
+		var	expdate = new Date();		// 72 Hours from now
+		expdate.setTime(expdate.getTime() + (72 * 60 * 60 * 1000));
+		setCookie('{COOKIE_NAME}_menu_cat_id', cat_id, expdate,
+				('{COOKIE_PATH}'   == '') ? null : '{COOKIE_PATH}',
+				('{COOKIE_DOMAIN}' == '') ? null : '{COOKIE_DOMAIN}',
+				('{COOKIE_SECURE}' == '0') ? false : true);
+	}
+	else
+	{
+		delCookie('{COOKIE_NAME}_menu_cat_id',
+				('{COOKIE_PATH}'   == '') ? null : '{COOKIE_PATH}',
+				('{COOKIE_DOMAIN}' == '') ? null : '{COOKIE_DOMAIN}');
+	}
+
+	currentStep = 0;
+	setTimeout("execQueue();", execInterval);
+}
+
+function doOnLoadMenuACP()
+{
+	var cat_id;
+
+	if( getObj('menuCat_0') )
+	{
+		cat_id = getCookie('{COOKIE_NAME}_menu_cat_id');
+		if( !menuCats['menuCat_'+cat_id] )
+		{
+			cat_id = 0;
+		}
+		else
+		{
+			menuCats['menuCat_'+cat_id].status = 'none';
+		}
+		onMenuCatClick(cat_id);
+	}
+	if( oldOnLoadMenuACP )
+	{
+		oldOnLoadMenuACP();
+	}
+}
+var	oldOnLoadMenuACP = window.onload;
+window.onload = doOnLoadMenuACP;
+
+// -->
+</script>
+#
+#-----[ FIND ]------------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+		<!-- BEGIN catrow -->
+		<tr>
+			<td height="28" class="catSides"
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+		<tr>
+			<td class="row1"><span class="genmed"><a href="{U_VERSIONS_CHECK}" target="main" class="genmed">{L_VERSIONS_CHECK}</a></span></td>
+		</tr>
+#
+#-----[ FIND ]------------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+catrow.ADMIN_CATEGORY
+#
+#-----[ IN-LINE FIND ]----------------------------------------
+#
+>
+#
+#-----[ IN-LINE BEFORE, ADD ]------------------------------------------
+#
+ style="cursor:pointer;cursor:hand;" onclick="onMenuCatClick('{catrow.MENU_CAT_ID}');"
+#
+#-----[ FIND ]------------------------------------------------
+#
+		<!-- BEGIN modulerow -->
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+		<tr> 
+			<td class="row1">
+				<div id="menuCat_{catrow.MENU_CAT_ID}" style="display:block;">
+					<table width="100%" cellpadding="4" cellspacing="1" border="0" class="bodyline">
+#
+#-----[ FIND ]------------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<td
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+<span
+#
+#-----[ IN-LINE REPLACE WITH ]------------------------------------------
+#
+<div id="menuCat_{catrow.MENU_CAT_ID}_{catrow.modulerow.ROW_COUNT}" style="display:block;"
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+</span>
+#
+#-----[ IN-LINE REPLACE WITH ]------------------------------------------
+#
+</div>
+#
+#-----[ FIND ]------------------------------------------------
+#
+		<!-- END modulerow -->
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+					</table>
+				</div>
+			</td>
+		</tr>
+#
+#-----[ FIND ]------------------------------------------------
+#
+<br />
+#
+#-----[ IN-LINE BEFORE, ADD ]------------------------------------------
+#
+<div align="center"><span class="copyright">
+<script language="javascript" type="text/javascript">
+<!--
+	document.write(menuVersion);
+// -->
+</script>
+</span></div>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/admin/page_footer.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+<br />{TRANSLATION_INFO}
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+<br />{TRANSLATION_INFO}
+#
+#-----[ IN-LINE AFTER, ADD ]------------------------------------------
+#
+<br />{OXYGEN_VERSION}
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/admin/page_header.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+</head>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+<script type="text/javascript" src="./../templates/rmwa_jslib.js"></script>
+<link rel="stylesheet" type="text/css" href="./../templates/picker/picker.css" media="screen" />
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/admin/ranks_list_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+<th class="thCornerL">{L_RANK}</th>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+		<th class="thTop">{L_RANK_IMG}</th>
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="{ranks.ROW_CLASS}" align="center">{ranks.RANK}</td>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+		<td class="{ranks.ROW_CLASS}" align="center">{ranks.RANK_IMG}</td>
+#
+#-----[ FIND ]------------------------------------------
+#
+<td class="catBottom" align="center" colspan="{%:1}"
+#
+#-----[ INCREMENT ]------------------------------------------
+#
+%:1 +1
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/admin/styles_edit_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+	<tr>
+	  <td class="row1">{L_BACKGROUND_IMAGE}:</td>
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+	<tr>
+		<td class="row1">{L_THEME_LOGO}<br /><span class="gensmall">{L_THEME_LOGO_EXPLAIN}</span></td>
+		<td class="row2"><input class="post" type="text" size="25" maxlength="255" name="theme_logo" value="{THEME_LOGO}" /></td>
+		<td class="row2">&nbsp;</td>		
+	</tr>
+#
+#-----[ FIND ]------------------------------------------
+#
+	<tr>
+		<td class="catBottom" colspan="3" align="center">{S_HIDDEN_FIELDS}
+#
+#-----[ BEFORE, ADD ]------------------------------------------
+#
+	<tr>
+		<th colspan="3">{L_ONLINE_SETTING}</th>
+	</tr>
+	<tr>
+		<td class="row1">{L_ONLINE_COLOR}:</td>
+		<td class="row2" colspan="2"><input class="post" type="text" size="6" maxlength="6" name="online_color" value="{ONLINE_COLOR}" /></td>
+	</tr>
+	<tr>
+		<td class="row1">{L_OFFLINE_COLOR}:</td>
+		<td class="row2" colspan="2"><input class="post" type="text" size="6" maxlength="6" name="offline_color" value="{OFFLINE_COLOR}" /></td>
+	</tr>
+	<tr>
+		<td class="row1">{L_HIDDEN_COLOR}:</td>
+		<td class="row2" colspan="2"><input class="post" type="text" size="6" maxlength="6" name="hidden_color" value="{HIDDEN_COLOR}" /></td>
+	</tr>
+#
+#-----[ SAVE/CLOSE ALL FILES ]------------------------------------------
+#
+# EoM

@@ -1,0 +1,155 @@
+##############################################################
+## MOD Titre: Colorize Forumtitle in Viewforum/Viewtopic Navigation Bar
+## MOD Author: EmmaBlack < hp68480@hotmail.fr > (N/A) http://emmablac.network-hosting.com/phpbb_demo/index.php
+## MOD Description: reports the forum color in viewforum and viewtopic navigation bar
+## MOD Version:		1.0.0
+##
+## Installation Level:	Easy
+## Installation Time:	5 minutes
+## Files To Edit:	4
+##	viewforum.php
+##	viewtopic.php
+##	templates/subSilver/viewforum_body.tpl
+##	templates/subSilver/viewtopic_body.tpl
+## Included Files:	N/A
+##
+## License: http://opensource.org/licenses/gpl-license.php GNU General Public License v2
+##############################################################
+## For security purposes, please check: http://www.phpbb.com/mods/
+## for the latest version of this MOD. Although MODs are checked
+## before being allowed in the MODs Database there is no guarantee
+## that there are no security problems within the MOD. No support
+## will be given for MODs not found within the MODs Database which
+## can be found at http://www.phpbb.com/mods/
+##############################################################
+## Author Notes:
+##
+##	Only for OxyGen PreMOD 1.1.0 and superior
+##
+##############################################################
+## MOD History:
+##
+##	2007-04-09 - Version 1.0.0
+##		- First release
+##
+##############################################################
+## Before Adding This MOD To Your Forum, You Should Back Up All Files Related To This MOD 
+##############################################################
+
+#
+#-----[ OPEN ]------------------------------------------
+#
+viewforum.php
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+'FORUM_NAME' =>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : colorize forum title ------------------------------------------------
+//-- add
+	'FORUM_COLOR' => (!empty($forum_row['forum_color'])) ? 'style="color: #' . $forum_row['forum_color'] . '"' : '',
+//-- fin mod : colorize forum title --------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------
+#
+viewtopic.php
+#
+#-----[ FIND ]------------------------------------------
+#
+$sql = 'SELECT t.topic_id
+	FROM ' . TOPICS_TABLE . ' t
+	WHERE ' . $join_sql . '
+		AND
+		' . $order_sql;
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : colorize forum title ------------------------------------------------
+//-- add
+$sql = str_replace(', f.forum_id', ', f.forum_id, f.forum_color', $sql);
+//-- fin mod : colorize forum title --------------------------------------------
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+'FORUM_NAME' =>
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : colorize forum title ------------------------------------------------
+//-- add
+	'FORUM_COLOR' => (!empty($forum_topic_data['forum_color'])) ? 'style="color: #' . $forum_topic_data['forum_color'] . '"' : '',
+//-- fin mod : colorize forum title --------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/viewforum_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<a class="maintitle" href="{U_VIEW_FORUM}">{FORUM_NAME}</a>
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+<a class="maintitle" href="{U_VIEW_FORUM}">{FORUM_NAME}</a>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+<a class="maintitle" {FORUM_COLOR} href="{U_VIEW_FORUM}">{FORUM_NAME}</a>
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<a class="nav" href="{U_VIEW_FORUM}">{FORUM_NAME}</a>
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+<a class="maintitle" href="{U_VIEW_FORUM}">{FORUM_NAME}</a>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+<a class="nav" href="{U_VIEW_FORUM}" {FORUM_COLOR}>{FORUM_NAME}</a>
+#
+#-----[ OPEN ]------------------------------------------
+#
+templates/subSilver/viewtopic_body.tpl
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<a href="{U_VIEW_FORUM}" class="nav">{FORUM_NAME}</a>
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+<a href="{U_VIEW_FORUM}" class="nav">{FORUM_NAME}</a>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+<a href="{U_VIEW_FORUM}" {FORUM_COLOR} class="nav">{FORUM_NAME}</a>
+#
+#-----[ FIND ]------------------------------------------
+#
+# This may be a partial find and not the whole line(s)
+#
+<a href="{U_VIEW_FORUM}" class="nav">{FORUM_NAME}</a>
+#
+#-----[ IN-LINE FIND ]------------------------------------------
+#
+<a href="{U_VIEW_FORUM}" class="nav">{FORUM_NAME}</a>
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#
+<a href="{U_VIEW_FORUM}" {FORUM_COLOR} class="nav">{FORUM_NAME}</a>
+#
+#-----[ SAVE/CLOSE ALL FILES ]------------------------------------------
+#
+# EoM

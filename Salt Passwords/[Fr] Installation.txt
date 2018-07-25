@@ -1,0 +1,14 @@
+Comment appliquer le MOD Salt Passwords à la preMOD OxyGen ?
+------------------------------------------------------------
+
+Après avoir installé la preMOD OxyGen, uploadez à la racine de celle-ci le fichier password.php.
+Exécutez ensuite le fichier (ex.: http://www.nom_de_votre_site.com/dossier_de_la_premod/password.php).
+
+Si le message qui suit apparaît, c'est que le MOD Salt Passwords est désormais actif.
+
+Successfully installed.
+You may now delete
+
+Supprimez alors le fichier de votre FTP, déconnectez-vous du forum et reconnectez-vous.
+
+Enjoy ;)
